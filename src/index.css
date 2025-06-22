@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-sans bg-gray-50 text-school-primary;
+}
+
+/* Prevent text selection and default cursor on non-interactive elements */
+p, span, div, h1, h2, h3, h4, h5, h6 {
+  user-select: none;
+  cursor: default;
+}
+
+/* Allow text selection and text cursor for input and textarea */
+input, textarea {
+  user-select: text;
+  cursor: text;
+}
+
+/* Allow pointer cursor and text selection for interactive elements */
+a, button, [role="button"], [onclick] {
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2 bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-school-secondary rounded-full;
+}
