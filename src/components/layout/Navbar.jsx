@@ -22,9 +22,6 @@ const Navbar = ({ children }) => {
         left-0 
         right-0 
         z-40 
-        bg-gray-100/80 
-        dark:bg-black/80 
-        backdrop-blur-md 
         shadow-sm 
         dark:shadow-dark 
         transition-colors 
@@ -40,11 +37,40 @@ const Navbar = ({ children }) => {
           justify-between 
           items-center 
           h-16
+          relative
         "
       >
-        <Logo />
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div 
+            className="w-full h-full ml-40 relative"
+            style={{
+              width: 'calc(100% - 10rem)'
+            }}
+          >
+            <div 
+              className="absolute inset-0"
+              style={{
+                // backgroundImage: `url('/src/assets/header/zppss_header.jpg')`,
+                backgroundSize: '36% 100%',
+                backgroundPosition: 'left center',
+                backgroundRepeat: 'no-repeat',
+                filter: 'brightness(1.1)'
+              }}
+            />
+            <div 
+              className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+              style={{
+                mixBlendMode: 'overlay'
+              }}
+            />
+          </div>
+        </div>
         
-        <div className="flex justify-end flex-grow">
+        <div className="z-10">
+          <Logo />
+        </div>
+        
+        <div className="flex justify-end flex-grow z-10">
           {children}
         </div>
       </div>
