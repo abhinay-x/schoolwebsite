@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createBrowserRouter, RouterProvider, Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import Navigation from './components/layout/Navigation';
 import Footer from './components/layout/Footer';
 import DarkModeToggle from './components/layout/DarkModeToggle';
 
@@ -83,9 +82,7 @@ function RootLayout() {
         duration-300
       `}
     >
-      <Navbar>
-        <Navigation />
-      </Navbar>
+      <Navbar />
 
       <main className="min-h-[calc(100vh-200px)] pt-16">
         <Outlet />
