@@ -188,29 +188,51 @@ const Navigation = ({ isMenuOpen, closeMenu, isMobile = false }) => {
   const handleMouseEnter = (itemName) => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
     }
     setHoveredItem(itemName);
     setOpenDropdown(itemName);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (e) => {
+    // Check if moving to dropdown menu
+    const dropdownMenu = e.relatedTarget?.closest('.dropdown-menu');
+    if (dropdownMenu) {
+      return; // Don't close if moving to dropdown
+    }
+    
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    
     dropdownTimeoutRef.current = setTimeout(() => {
       setHoveredItem(null);
       setOpenDropdown(null);
-    }, 150); // Small delay to prevent flickering
+    }, 300); // Slightly longer delay for better UX
   };
 
   const handleDropdownEnter = () => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
     }
   };
 
-  const handleDropdownLeave = () => {
+  const handleDropdownLeave = (e) => {
+    // Check if moving back to the parent menu item
+    const parentMenuItem = e.relatedTarget?.closest('.menu-item');
+    if (parentMenuItem) {
+      return; // Don't close if moving back to parent menu
+    }
+    
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    
     dropdownTimeoutRef.current = setTimeout(() => {
       setHoveredItem(null);
       setOpenDropdown(null);
-    }, 150);
+    }, 300);
   };
 
   const handleItemClick = (itemName, href) => {
@@ -230,6 +252,7 @@ const Navigation = ({ isMenuOpen, closeMenu, isMobile = false }) => {
     return () => {
       if (dropdownTimeoutRef.current) {
         clearTimeout(dropdownTimeoutRef.current);
+        dropdownTimeoutRef.current = null;
       }
     };
   }, []);
@@ -395,9 +418,9 @@ const Navigation = ({ isMenuOpen, closeMenu, isMobile = false }) => {
       {navigationItems.map((item, index) => (
         <div 
           key={item.name} 
-          className="relative flex-1 flex justify-center"
+          className="relative flex-1 flex justify-center menu-item"
           onMouseEnter={() => item.submenu && handleMouseEnter(item.name)}
-          onMouseLeave={() => item.submenu && handleMouseLeave()}
+          onMouseLeave={handleMouseLeave}
         >
           {item.submenu ? (
             <button
@@ -430,7 +453,7 @@ const Navigation = ({ isMenuOpen, closeMenu, isMobile = false }) => {
               {/* Enhanced Dropdown Menu */}
               {openDropdown === item.name && (
                 <div 
-                  className="absolute top-full left-0 mt-3 w-80 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-green-200/50 py-3 z-50 animate-slideInDown"
+                  className="dropdown-menu absolute top-full left-0 mt-3 w-80 bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-green-200/50 py-3 z-50 animate-slideInDown"
                   onMouseEnter={handleDropdownEnter}
                   onMouseLeave={handleDropdownLeave}
                 >
@@ -442,7 +465,11 @@ const Navigation = ({ isMenuOpen, closeMenu, isMobile = false }) => {
                       <Link
                         key={subItem.name}
                         to={subItem.href}
-                        onClick={(e)=>{ e.stopPropagation(); setOpenDropdown(null); }}
+                        onClick={(e) => { 
+                          e.stopPropagation(); 
+                          setOpenDropdown(null);
+                          closeMenu?.();
+                        }}
                         className={`
                           flex items-center space-x-3 px-4 py-3 rounded-xl
                           text-gray-700 hover:bg-green-50 hover:text-green-700

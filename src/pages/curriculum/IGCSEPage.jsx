@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
+import { FaGraduationCap, FaStar, FaArrowRight, FaUsers, FaBookOpen, FaAward, FaMagic, FaLightbulb, FaRocket, FaGlobe } from 'react-icons/fa';
+import { HiSparkles, HiAcademicCap, HiLightBulb, HiStar } from 'react-icons/hi';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 
 // Import images
 import ig1 from '../../assets/Images/igcse/ig1.jpg';
@@ -13,32 +16,72 @@ import ig4 from '../../assets/Images/igcse/ig4.jpeg';
 import ig8 from '../../assets/Images/igcse/ig8.jpg';
 
 export default function IGCSEPage() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const handleMouseMove = (e, cardId) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMousePosition({ x, y });
+  };
   const courses = [
     {
       id: 1,
       image: ig1,
-      title: 'Educational Trip - 2021/22',
-      subtitle: 'THE RECORD BREAKING EDUCATION VISIT TO TEDZANI HYDRO ELECTRIC POWER STATION',
-      description: 'The school decided to bring realistic learning by embarking on a 150 kilometer trip to Tedzani Hydro Electric Power Station in Mwanza District with students of the secondary section. They had a vivid experience on how the energy on the natural head of water along the Shire is converted to drive massive generators to produce highest voltage of electricity fed to the nation.'
+      title: 'Educational Trip',
+      subtitle: 'Tedzani Hydro Electric Power Station',
+      description: 'The school decided to bring realistic learning by embarking on a 150 kilometer trip to Tedzani Hydro Electric Power Station in Mwanza District with students of the secondary section. They had a vivid experience on how the energy on the natural head of water along the Shire is converted to drive massive generators.',
+      gradient: 'from-blue-500/20 via-cyan-500/10 to-teal-500/20',
+      glowColor: 'shadow-blue-500/25',
+      stats: '150km Trip',
+      icon: <FaRocket className="w-6 h-6" />
     },
     {
       id: 2,
       image: ig2,
-      title: 'The Robotic Workshop - 2022/23',
-      description: 'We believe learning robotics will increase the students\' ability to be creative, innovative thinkers and become more productive members of the society. Students will learn to program the computerized robots by giving accurate and precise instructions while having fun in the process. By teaching our students robotics, we will open a whole new world to them and exciting opportunities that they wouldn\'t have access to otherwise.'
+      title: 'Robotic Workshop',
+      subtitle: 'Innovation & Technology',
+      description: 'We believe learning robotics will increase the students ability to be creative, innovative thinkers and become more productive members of the society. Students will learn to program the computerized robots by giving accurate and precise instructions while having fun in the process.',
+      gradient: 'from-purple-500/20 via-violet-500/10 to-fuchsia-500/20',
+      glowColor: 'shadow-purple-500/25',
+      stats: 'Tech Skills',
+      icon: <FaLightbulb className="w-6 h-6" />
     },
     {
       id: 3,
       image: ig3,
-      title: 'DEBATE AND QUIZ COMPETITION',
-      description: 'The 2021/22 school session was packed with intra-school activities that saw students discussing several topics in writing and cross-cutting their knowledge through quizzes in different subjects. Being international, our institution embarks on producing best English debaters and we are banking hopes that these students ahead of their near and distant future will stand out in different professions occupying prominent positions and participating in building up our nation as many have previously done.'
+      title: 'Debate & Quiz',
+      subtitle: 'Critical Thinking Excellence',
+      description: 'The 2021/22 school session was packed with intra-school activities that saw students discussing several topics in writing and cross-cutting their knowledge through quizzes in different subjects. Being international, our institution embarks on producing best English debaters.',
+      gradient: 'from-emerald-500/20 via-green-500/10 to-lime-500/20',
+      glowColor: 'shadow-emerald-500/25',
+      stats: 'Top Debaters',
+      icon: <HiLightBulb className="w-6 h-6" />
     },
     {
       id: 4,
       image: ig4,
-      title: 'ESSAY WRITING AND SPELL BEE',
-      description: 'Our school is aware of the diversity of skills which nature has bestowed upon our students. We have not turned a blind eye to the skill of writing. The essay writing competition spiced with Spell Bee competition has proven a success in encouraging our students to excel in writing and spellings. We are hopeful that this foundation will end in authors, authoring literature and material contributing to preservation and spread of knowledge worldwide.'
+      title: 'Essay & Spell Bee',
+      subtitle: 'Literary Excellence',
+      description: 'Our school is aware of the diversity of skills which nature has bestowed upon our students. The essay writing competition spiced with Spell Bee competition has proven a success in encouraging our students to excel in writing and spellings.',
+      gradient: 'from-orange-500/20 via-yellow-500/10 to-red-500/20',
+      glowColor: 'shadow-orange-500/25',
+      stats: 'Future Authors',
+      icon: <FaBookOpen className="w-6 h-6" />
     }
+  ];
+
+  const stats = [
+    { icon: <FaUsers className="w-6 h-6" />, label: 'Students', value: '200+', color: 'text-blue-500' },
+    { icon: <FaBookOpen className="w-6 h-6" />, label: 'Subjects', value: '12', color: 'text-emerald-500' },
+    { icon: <FaAward className="w-6 h-6" />, label: 'Success Rate', value: '96%', color: 'text-pink-500' },
+    { icon: <FaGlobe className="w-6 h-6" />, label: 'Global Recognition', value: 'Cambridge', color: 'text-yellow-500' }
   ];
 
   const uniqueFeatures = [
@@ -63,63 +106,200 @@ export default function IGCSEPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Courses Section */}
-      <section className="py-16 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold text-center mb-8 text-school-secondary dark:text-school-accent">
-            Our Secondary <span className="text-school-primary">IGCSE Courses</span>
-          </h1>
-          
-          <p className="text-xl text-center text-fuchsia-600 dark:text-fuchsia-400 mb-8 max-w-4xl mx-auto">
-            Higher class learning prepares the student to face the open world in Science, Commerce and Professional careers. 
-            Knowledge in ICT, Robotics, Languages and critical thinking is what senior students need to be equipped with as 
-            they prepare for real life experiences.
-          </p>
+    <>
+      {/* Custom CSS for advanced animations */}
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-12px) rotate(2deg); }
+        }
+        @keyframes glow {
+          0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+          50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 0 60px rgba(59, 130, 246, 0.4); }
+        }
+        @keyframes shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        @keyframes slideInUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+        .float-animation { animation: float 7s ease-in-out infinite; }
+        .glow-animation { animation: glow 4s ease-in-out infinite; }
+        .shimmer-bg {
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+          background-size: 200% 100%;
+          animation: shimmer 2s infinite;
+        }
+        .slide-in-up { animation: slideInUp 0.6s ease-out forwards; }
+        .pulse-animation { animation: pulse 2s ease-in-out infinite; }
+        
+        /* Custom Swiper Pagination Styles */
+        .swiper-pagination-bullet {
+          background: rgba(59, 130, 246, 0.3) !important;
+          width: 12px !important;
+          height: 12px !important;
+          border: 2px solid rgba(255, 255, 255, 0.5) !important;
+          opacity: 1 !important;
+          transition: all 0.3s ease !important;
+        }
+        .swiper-pagination-bullet-active {
+          background: rgb(59, 130, 246) !important;
+          transform: scale(1.2) !important;
+          border-color: rgba(255, 255, 255, 0.8) !important;
+          box-shadow: 0 0 20px rgba(59, 130, 246, 0.6) !important;
+        }
+        .swiper-pagination {
+          bottom: 20px !important;
+        }
+      `}</style>
 
-          <div className="mt-12">
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              spaceBetween={30}
-              pagination={{ clickable: true, dynamicBullets: true }}
-              autoplay={{ delay: 5000, disableOnInteraction: false }}
-              breakpoints={{
-                640: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-              }}
-              className="pb-12 px-2"
-            >
-              {courses.map((course) => (
-                <SwiperSlide key={course.id} className="pb-10">
-                  <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
-                    <div className="h-56 overflow-hidden">
-                      <img 
-                        src={course.image} 
-                        alt={course.title} 
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="p-6 flex flex-col h-80">
-                      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white line-clamp-2">
-                        {course.title}
-                      </h3>
-                      {course.subtitle && (
-                        <p className="text-fuchsia-600 dark:text-fuchsia-400 font-medium text-sm mb-3 line-clamp-2">
-                          {course.subtitle}
-                        </p>
-                      )}
-                      <p className="text-gray-600 dark:text-gray-300 flex-1 overflow-hidden line-clamp-5">
-                        {course.description}
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+      <div className="min-h-screen relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 dark:from-slate-900 dark:via-blue-900 dark:to-cyan-900">
+          <div className="absolute inset-0 opacity-20" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}></div>
+          
+          {/* Floating Elements */}
+          <div className="absolute top-20 left-10 w-36 h-36 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 dark:from-blue-400/20 dark:to-cyan-400/20 rounded-full blur-xl float-animation"></div>
+          <div className="absolute top-60 right-20 w-28 h-28 bg-gradient-to-r from-teal-400/10 to-emerald-400/10 dark:from-teal-400/20 dark:to-emerald-400/20 rounded-full blur-xl float-animation" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-40 left-1/4 w-32 h-32 bg-gradient-to-r from-purple-400/10 to-violet-400/10 dark:from-purple-400/20 dark:to-violet-400/20 rounded-full blur-xl float-animation" style={{animationDelay: '4s'}}></div>
+          <div className="absolute bottom-20 right-1/3 w-24 h-24 bg-gradient-to-r from-orange-400/10 to-yellow-400/10 dark:from-orange-400/20 dark:to-yellow-400/20 rounded-full blur-xl float-animation" style={{animationDelay: '1s'}}></div>
         </div>
-      </section>
+
+        <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+          {/* Enhanced Header */}
+          <div className={`text-center mb-20 ${isVisible ? 'slide-in-up' : 'opacity-0'}`}>
+            <div className="inline-flex items-center justify-center p-3 bg-white/20 dark:bg-white/10 backdrop-blur-md rounded-full mb-8 border border-blue-200/30 dark:border-white/20">
+              <HiAcademicCap className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3" />
+              <span className="text-gray-800 dark:text-white/90 font-semibold">Cambridge IGCSE Excellence</span>
+              <FaAward className="w-5 h-5 text-yellow-500 dark:text-yellow-400 ml-3" />
+            </div>
+            
+            <h1 className="text-7xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 dark:from-blue-300 dark:via-cyan-300 dark:to-teal-300 bg-clip-text text-transparent mb-8 leading-tight">
+              IGCSE Program
+            </h1>
+            
+            <p className="text-2xl text-gray-700 dark:text-white/80 max-w-5xl mx-auto leading-relaxed mb-8">
+              Empowering global leaders through world-class Cambridge education and innovative learning experiences.
+              <span className="block mt-3 text-lg text-blue-600 dark:text-blue-300">Where academic excellence meets personal growth and international recognition.</span>
+            </p>
+
+            {/* Stats Section */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12">
+              {stats.map((stat, index) => (
+                <div key={index} className={`bg-white/30 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/40 dark:hover:bg-white/20 transition-all duration-300 group ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: `${index * 100 + 300}ms`}}>
+                  <div className={`${stat.color} mb-3 transform group-hover:scale-110 transition-transform duration-300`}>
+                    {stat.icon}
+                  </div>
+                  <div className="text-2xl font-bold text-gray-800 dark:text-white mb-1">{stat.value}</div>
+                  <div className="text-sm text-gray-600 dark:text-white/70">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Enhanced Courses Section */}
+          <div className={`max-w-7xl mx-auto mb-20 ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: '600ms'}}>
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold text-gray-800 dark:text-white mb-6">
+                Our <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">IGCSE Programs</span>
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
+                Discover our comprehensive programs designed to prepare students for global success and lifelong learning.
+              </p>
+            </div>
+
+            <div className="relative">
+              <Swiper
+                modules={[Pagination, Autoplay, EffectCoverflow]}
+                effect="coverflow"
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={"auto"}
+                coverflowEffect={{
+                  rotate: 50,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: true,
+                }}
+                pagination={{ 
+                  clickable: true, 
+                  dynamicBullets: true,
+                  bulletClass: 'swiper-pagination-bullet',
+                  bulletActiveClass: 'swiper-pagination-bullet-active'
+                }}
+                autoplay={{ delay: 4000, disableOnInteraction: false }}
+                className="pb-16"
+              >
+                {courses.map((course, index) => (
+                  <SwiperSlide key={course.id} className="!w-80 md:!w-96">
+                    <div 
+                      className={`relative overflow-hidden rounded-3xl transition-all duration-700 transform hover:scale-105 group`}
+                      onMouseEnter={() => setHoveredCard(course.id)}
+                      onMouseLeave={() => setHoveredCard(null)}
+                      onMouseMove={(e) => handleMouseMove(e, course.id)}
+                    >
+                      {/* Glassmorphism Card */}
+                      <div className={`relative h-[500px] bg-gradient-to-br ${course.gradient} backdrop-blur-xl border border-white/30 dark:border-white/20 shadow-2xl ${course.glowColor} group-hover:shadow-3xl transition-all duration-500`}>
+                        
+                        {/* Image Section */}
+                        <div className="relative h-60 overflow-hidden rounded-t-3xl">
+                          <img 
+                            src={course.image} 
+                            alt={course.title} 
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                          
+                          {/* Floating Badge */}
+                          <div className="absolute top-4 right-4 bg-white/90 dark:bg-white/80 backdrop-blur-sm rounded-full px-4 py-2">
+                            <span className="text-xs font-semibold text-gray-800">{course.stats}</span>
+                          </div>
+                          
+                          {/* Icon Badge */}
+                          <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm rounded-full p-3">
+                            <div className="text-white">{course.icon}</div>
+                          </div>
+                        </div>
+                        
+                        {/* Content Section */}
+                        <div className="p-8">
+                          <div className="mb-6">
+                            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                              {course.title}
+                            </h3>
+                            <p className="text-sm font-medium text-blue-600 dark:text-blue-300 mb-4">
+                              {course.subtitle}
+                            </p>
+                          </div>
+                          
+                          <p className="text-gray-700 dark:text-white/80 text-sm leading-relaxed mb-6 group-hover:text-gray-800 dark:group-hover:text-white transition-colors duration-300">
+                            {course.description}
+                          </p>
+                          
+                          {/* Action Button */}
+                          <div className="flex justify-center">
+                            <div className="inline-flex items-center justify-center bg-white/40 dark:bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-gray-800 dark:text-white group-hover:bg-white/60 dark:group-hover:bg-white/30 font-semibold transition-all duration-300 shadow-lg group-hover:shadow-xl cursor-pointer">
+                              <span className="mr-2 text-sm">Learn More</span>
+                              <FaArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
 
       {/* IGCSE Program Details */}
       <section className="py-12 px-4 md:px-8 bg-white dark:bg-gray-800">
@@ -190,6 +370,8 @@ export default function IGCSEPage() {
           </div>
         </div>
       </section>
-    </div>
+        </div>
+      </div>
+    </>
   );
 }

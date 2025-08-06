@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import { 
@@ -14,7 +14,17 @@ import {
   TrophyIcon,
   BookOpenIcon,
   Bars3Icon,
-  XMarkIcon
+  XMarkIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  PlayIcon,
+  PauseIcon,
+  ArrowRightIcon,
+  CheckCircleIcon,
+  FireIcon,
+  BoltIcon,
+  ShieldCheckIcon,
+  RocketLaunchIcon
 } from '@heroicons/react/24/solid';
 
 import bg1 from '../assets/Images/bg1.jpg';
@@ -22,25 +32,281 @@ import bg2 from '../assets/Images/bg2.jpg';
 import bg3 from '../assets/Images/bg3.jpg';
 import bg4 from '../assets/Images/bg4.jpg';
 
-// Floating particles component
-const FloatingParticles = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    {[...Array(20)].map((_, i) => (
-      <div
-        key={i}
-        className="absolute animate-float opacity-20"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 3}s`,
-          animationDuration: `${3 + Math.random() * 4}s`
-        }}
-      >
-        <SparklesIcon className="h-4 w-4 text-yellow-400" />
+// Enhanced floating particles with mouse interaction
+const FloatingParticles = ({ mousePosition }) => {
+  const particleIcons = [SparklesIcon, StarIcon, HeartIcon, LightBulbIcon, TrophyIcon];
+  
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(25)].map((_, i) => {
+        const IconComponent = particleIcons[i % particleIcons.length];
+        const colors = ['text-yellow-400', 'text-blue-400', 'text-purple-400', 'text-green-400', 'text-pink-400'];
+        
+        return (
+          <div
+            key={i}
+            className="absolute animate-float opacity-30 hover:opacity-60 transition-opacity duration-300"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${3 + Math.random() * 4}s`,
+              transform: mousePosition ? `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)` : 'none'
+            }}
+          >
+            <IconComponent className={`h-4 w-4 ${colors[i % colors.length]} drop-shadow-lg`} />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+// Enhanced Quote Carousel Component
+const QuoteCarousel = () => {
+  const [currentQuote, setCurrentQuote] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  
+  const quotes = [
+    {
+      text: "Education is the most powerful weapon which you can use to change the world.",
+      author: "Nelson Mandela",
+      gradient: "from-blue-600 to-purple-600",
+      icon: GlobeAltIcon
+    },
+    {
+      text: "The beautiful thing about learning is that no one can take it away from you.",
+      author: "B.B. King",
+      gradient: "from-green-600 to-emerald-600",
+      icon: LightBulbIcon
+    },
+    {
+      text: "Excellence is never an accident. It is always the result of high intention.",
+      author: "Aristotle",
+      gradient: "from-purple-600 to-pink-600",
+      icon: TrophyIcon
+    },
+    {
+      text: "The future belongs to those who believe in the beauty of their dreams.",
+      author: "Eleanor Roosevelt",
+      gradient: "from-orange-600 to-red-600",
+      icon: RocketLaunchIcon
+    }
+  ];
+  
+  useEffect(() => {
+    if (!isPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentQuote(prev => (prev + 1) % quotes.length);
+    }, 4000);
+    
+    return () => clearInterval(interval);
+  }, [isPlaying, quotes.length]);
+  
+  const nextQuote = () => {
+    setCurrentQuote(prev => (prev + 1) % quotes.length);
+  };
+  
+  const prevQuote = () => {
+    setCurrentQuote(prev => (prev - 1 + quotes.length) % quotes.length);
+  };
+  
+  return (
+    <div className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 rounded-3xl p-8 md:p-12 overflow-hidden group">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-pulse" />
+      
+      {/* Floating elements */}
+      <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+        <div className="w-32 h-32 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-xl animate-float" />
       </div>
-    ))}
-  </div>
-);
+      
+      <div className="relative z-10">
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center space-x-4">
+            <div className={`p-3 bg-gradient-to-r ${quotes[currentQuote].gradient} rounded-full shadow-lg`}>
+              {React.createElement(quotes[currentQuote].icon, { className: "h-6 w-6 text-white" })}
+            </div>
+            <h3 className="text-2xl font-bold text-white">Inspiration</h3>
+          </div>
+          
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors duration-300"
+            >
+              {isPlaying ? 
+                <PauseIcon className="h-5 w-5 text-white" /> : 
+                <PlayIcon className="h-5 w-5 text-white" />
+              }
+            </button>
+          </div>
+        </div>
+        
+        <div className="relative min-h-[200px] flex items-center">
+          <div className="w-full">
+            <blockquote className="text-2xl md:text-3xl font-light text-white leading-relaxed mb-6 transform transition-all duration-500">
+              "{quotes[currentQuote].text}"
+            </blockquote>
+            <cite className="text-lg text-gray-300 font-semibold">
+              — {quotes[currentQuote].author}
+            </cite>
+          </div>
+        </div>
+        
+        <div className="flex items-center justify-between mt-8">
+          <div className="flex space-x-2">
+            {quotes.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentQuote(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentQuote 
+                    ? 'bg-white scale-125 shadow-lg' 
+                    : 'bg-white/30 hover:bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+          
+          <div className="flex space-x-2">
+            <button
+              onClick={prevQuote}
+              className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors duration-300 group"
+            >
+              <ChevronLeftIcon className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-200" />
+            </button>
+            <button
+              onClick={nextQuote}
+              className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors duration-300 group"
+            >
+              <ChevronRightIcon className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-200" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Enhanced Features Showcase Component
+const FeaturesShowcase = () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const [hoveredFeature, setHoveredFeature] = useState(null);
+  
+  const features = [
+    {
+      category: "Academic Excellence",
+      icon: AcademicCapIcon,
+      gradient: "from-blue-600 to-cyan-600",
+      items: [
+        { icon: CheckCircleIcon, title: "Cambridge IGCSE Curriculum", description: "Internationally recognized qualifications" },
+        { icon: TrophyIcon, title: "Outstanding Results", description: "98% pass rate with distinction" },
+        { icon: BookOpenIcon, title: "Modern Learning Methods", description: "Interactive and engaging pedagogy" },
+        { icon: StarIcon, title: "Expert Faculty", description: "Highly qualified and experienced teachers" }
+      ]
+    },
+    {
+      category: "Student Life",
+      icon: HeartIcon,
+      gradient: "from-purple-600 to-pink-600",
+      items: [
+        { icon: UserIcon, title: "Holistic Development", description: "Focus on character and personality building" },
+        { icon: GlobeAltIcon, title: "Global Perspective", description: "International outlook and cultural awareness" },
+        { icon: SparklesIcon, title: "Creative Expression", description: "Arts, music, and creative programs" },
+        { icon: ShieldCheckIcon, title: "Safe Environment", description: "Secure and nurturing campus" }
+      ]
+    },
+    {
+      category: "Innovation",
+      icon: RocketLaunchIcon,
+      gradient: "from-green-600 to-emerald-600",
+      items: [
+        { icon: BoltIcon, title: "Smart Classrooms", description: "Technology-enhanced learning spaces" },
+        { icon: LightBulbIcon, title: "Research Projects", description: "Student-led inquiry and investigation" },
+        { icon: FireIcon, title: "STEM Excellence", description: "Science, Technology, Engineering, Math focus" },
+        { icon: TrophyIcon, title: "Competition Success", description: "National and international achievements" }
+      ]
+    }
+  ];
+  
+  return (
+    <div className="bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, #3b82f6 0%, transparent 50%), radial-gradient(circle at 75% 75%, #8b5cf6 0%, transparent 50%)`
+        }} />
+      </div>
+      
+      <div className="relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mb-4">
+            Why Choose ZPPS
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Discover what makes our school exceptional
+          </p>
+        </div>
+        
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center mb-12 gap-4">
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon;
+            return (
+              <button
+                key={index}
+                onClick={() => setActiveTab(index)}
+                className={`flex items-center space-x-3 px-6 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 ${
+                  activeTab === index
+                    ? `bg-gradient-to-r ${feature.gradient} text-white shadow-xl`
+                    : 'bg-white/50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 hover:bg-white/70 dark:hover:bg-gray-800/70'
+                }`}
+              >
+                <IconComponent className="h-6 w-6" />
+                <span>{feature.category}</span>
+              </button>
+            );
+          })}
+        </div>
+        
+        {/* Feature Content */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {features[activeTab].items.map((item, index) => {
+            const IconComponent = item.icon;
+            return (
+              <div
+                key={index}
+                onMouseEnter={() => setHoveredFeature(index)}
+                onMouseLeave={() => setHoveredFeature(null)}
+                className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-gray-200/50 dark:border-gray-700/50 ${
+                  hoveredFeature === index ? 'ring-2 ring-blue-400 ring-opacity-50' : ''
+                }`}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className={`p-3 bg-gradient-to-r ${features[activeTab].gradient} rounded-xl shadow-lg transform transition-transform duration-300 ${
+                    hoveredFeature === index ? 'scale-110 rotate-6' : ''
+                  }`}>
+                    <IconComponent className="h-6 w-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const StatBox = ({ Icon, number, label, index }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -181,6 +447,8 @@ const HomePage = () => {
   const [headerOpacity, setHeaderOpacity] = useState(1);
   const [scrollY, setScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
   const heroRef = useRef(null);
 
   const backgroundImages = [bg1, bg2, bg3, bg4];
@@ -202,7 +470,7 @@ const HomePage = () => {
       attributeFilter: ['class'] 
     });
 
-    // Scroll handler for header fade
+    // Enhanced scroll handler with parallax effects
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
@@ -220,21 +488,33 @@ const HomePage = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Enhanced mouse movement tracking for interactive elements
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 100,
+        y: (e.clientY / window.innerHeight - 0.5) * 100
+      });
+    };
 
-    // Automatic image rotation with smooth transition
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        (prevIndex + 1) % backgroundImages.length
-      );
-    }, 6000);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    // Enhanced automatic image rotation with pause on hover
+    const imageInterval = setInterval(() => {
+      if (isAutoPlay) {
+        setCurrentImageIndex(prevIndex => 
+          prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
+        );
+      }
+    }, 5000);
 
     return () => {
-      observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
-      clearInterval(interval);
+      window.removeEventListener('mousemove', handleMouseMove);
+      observer.disconnect();
+      clearInterval(imageInterval);
     };
-  }, [backgroundImages.length]);
+  }, [backgroundImages.length, isAutoPlay]);
 
   const stats = [
     { Icon: BookOpenIcon, number: '15+', label: 'Subjects' },
@@ -574,73 +854,125 @@ const HomePage = () => {
             ${isHeroVisible ? 'animate-fadeInScale opacity-100' : 'opacity-0 scale-90'}
           `}
         >
-          <div className="mb-6">
-            <span className="inline-block px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full text-sm font-semibold mb-4 animate-pulse-glow shadow-2xl animate-gradient-shift">
-              🎓 Cambridge IGCSE Excellence
-            </span>
+          <div className="mb-8">
+            <div className="inline-block p-4 bg-white/10 backdrop-blur-md rounded-full mb-6 shadow-2xl animate-float">
+              <AcademicCapIcon className="h-16 w-16 text-yellow-400" />
+            </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-emerald-300 to-teal-300 animate-pulse leading-tight">
-            ZOMBA PRIVATE SCHOOL
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent animate-gradient bg-[length:200%_200%]">
+              Welcome to ZPPS
+            </span>
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed font-light animate-slideInUp">
-            Empowering minds through Cambridge IGCSE curriculum, nurturing tomorrow's leaders with excellence and innovation
+          <p className="text-xl md:text-2xl lg:text-3xl mb-8 font-light leading-relaxed max-w-4xl mx-auto opacity-90">
+            Nurturing Excellence in Cambridge IGCSE Education Since 1978
           </p>
-
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
-            <Link
-              to="/admissions/form"
-              className="group px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full hover:from-green-700 hover:to-emerald-700 transition-all duration-300 shadow-2xl hover:shadow-green-500/50 transform hover:scale-105 font-semibold text-lg animate-slideInLeft"
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <Link 
+              to="/admissions" 
+              className="group bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-green-500/25 transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 relative overflow-hidden"
             >
-              <span className="flex items-center">
-                Apply Now
-                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <span className="relative z-10">Apply Now</span>
+              <SparklesIcon className="h-5 w-5 relative z-10 group-hover:animate-spin" />
             </Link>
-            
-            <Link
-              to="/about/vision-mission"
-              className="group px-8 py-4 border-2 border-white/70 text-white rounded-full hover:bg-white/10 backdrop-blur-sm transition-all duration-300 font-semibold text-lg hover:border-white animate-slideInRight"
+            <Link 
+              to="/about" 
+              className="group border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg font-semibold shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 backdrop-blur-sm"
             >
-              Discover More
+              <span>Learn More</span>
+              <ArrowRightIcon className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
-
-          {/* Achievement Badges - Updated */}
-          <div className="flex justify-center space-x-8 mt-8 animate-slideInUp" style={{ animationDelay: '0.5s' }}>
-            <div className="text-center transform hover:scale-110 transition-transform duration-300">
-              <div className="text-3xl font-bold text-green-400">A+</div>
-              <div className="text-white/80 text-sm">IGCSE Grade</div>
-            </div>
-            <div className="text-center transform hover:scale-110 transition-transform duration-300">
-              <div className="text-3xl font-bold text-emerald-400">Cambridge</div>
-              <div className="text-white/80 text-sm">Certified</div>
-            </div>
-            <div className="text-center transform hover:scale-110 transition-transform duration-300">
-              <div className="text-3xl font-bold text-teal-400">Est. 1975</div>
-              <div className="text-white/80 text-sm">Heritage</div>
-            </div>
+          
+          {/* Quick Stats Preview */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+            {[
+              { icon: BookOpenIcon, value: "15+", label: "Subjects" },
+              { icon: UserIcon, value: "200+", label: "Students" },
+              { icon: TrophyIcon, value: "98%", label: "Success" },
+              { icon: StarIcon, value: "45+", label: "Years" }
+            ].map((stat, index) => {
+              const IconComponent = stat.icon;
+              return (
+                <div key={index} className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+                  <IconComponent className="h-6 w-6 mx-auto mb-2 text-yellow-400" />
+                  <div className="text-2xl font-bold">{stat.value}</div>
+                  <div className="text-sm opacity-80">{stat.label}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Enhanced Image Navigation */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
-          {backgroundImages.map((_, index) => (
+        {/* Enhanced Floating Achievement Badges */}
+        <div className="absolute top-1/2 left-8 transform -translate-y-1/2 hidden lg:block z-30">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white text-center transform hover:scale-110 transition-all duration-300 shadow-2xl border border-white/20 group">
+            <div className="text-3xl font-bold text-emerald-400 group-hover:animate-pulse">Cambridge</div>
+            <div className="text-white/80 text-sm">Certified</div>
+            <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full animate-ping" />
+          </div>
+        </div>
+        
+        <div className="absolute top-1/2 right-8 transform -translate-y-1/2 hidden lg:block z-30">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white text-center transform hover:scale-110 transition-all duration-300 shadow-2xl border border-white/20 group">
+            <div className="text-3xl font-bold text-teal-400 group-hover:animate-pulse">Est. 1978</div>
+            <div className="text-white/80 text-sm">Heritage</div>
+            <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-500 rounded-full animate-ping" />
+          </div>
+        </div>
+
+        {/* Enhanced Image Navigation with Controls */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+          <div className="flex items-center space-x-4 bg-black/20 backdrop-blur-md rounded-full px-6 py-3">
             <button
-              key={index}
-              onClick={() => setCurrentImageIndex(index)}
-              className={`
-                h-3 rounded-full transition-all duration-500 backdrop-blur-sm
-                ${currentImageIndex === index 
-                  ? 'bg-white w-8 shadow-lg' 
-                  : 'bg-white/50 w-3 hover:bg-white/70'
-                }
-              `}
-            />
-          ))}
+              onClick={() => setCurrentImageIndex(prev => prev === 0 ? backgroundImages.length - 1 : prev - 1)}
+              className="p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors duration-300 group"
+            >
+              <ChevronLeftIcon className="h-4 w-4 text-white group-hover:scale-110 transition-transform duration-200" />
+            </button>
+            
+            <div className="flex space-x-2">
+              {backgroundImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`h-2 rounded-full transition-all duration-500 ${
+                    currentImageIndex === index 
+                      ? 'bg-white w-8 shadow-lg' 
+                      : 'bg-white/50 w-2 hover:bg-white/70'
+                  }`}
+                />
+              ))}
+            </div>
+            
+            <button
+              onClick={() => setCurrentImageIndex(prev => prev === backgroundImages.length - 1 ? 0 : prev + 1)}
+              className="p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors duration-300 group"
+            >
+              <ChevronRightIcon className="h-4 w-4 text-white group-hover:scale-110 transition-transform duration-200" />
+            </button>
+            
+            <button
+              onClick={() => setIsAutoPlay(!isAutoPlay)}
+              className="p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors duration-300 ml-2"
+            >
+              {isAutoPlay ? 
+                <PauseIcon className="h-4 w-4 text-white" /> : 
+                <PlayIcon className="h-4 w-4 text-white" />
+              }
+            </button>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse" />
+          </div>
         </div>
       </div>
 
@@ -671,21 +1003,55 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Enhanced Why Choose Us Section */}
-      <section className="py-20 bg-gradient-to-br from-white via-green-50 to-emerald-50 dark:from-school-dark-background dark:via-gray-800 dark:to-gray-900 transition-colors duration-300 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-green-400 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-72 h-72 bg-emerald-400 rounded-full blur-3xl"></div>
+      {/* Enhanced Quote Carousel Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-100 via-gray-100 to-blue-100 dark:from-gray-800 dark:via-slate-800 dark:to-blue-900 transition-colors duration-300 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 20% 20%, #3b82f6 0%, transparent 50%), radial-gradient(circle at 80% 80%, #8b5cf6 0%, transparent 50%)`
+          }} />
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-600 via-blue-600 to-purple-600 mb-6">
+              Words of Wisdom
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Inspiring quotes that guide our educational philosophy and vision
+            </p>
+          </div>
+          
+          <QuoteCarousel />
+        </div>
+      </section>
+
+      {/* Enhanced Features Showcase Section */}
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20 transition-colors duration-300 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <FeaturesShowcase />
+        </div>
+      </section>
+
+      {/* Enhanced Why Choose Us Section */}
+      <section className="py-20 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-emerald-900/20 dark:via-gray-800 dark:to-teal-900/20 transition-colors duration-300 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-green-400 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-72 h-72 bg-emerald-400 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-teal-300 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-block p-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full mb-6 shadow-lg">
+              <StarIcon className="h-8 w-8 text-white" />
+            </div>
             <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600 mb-6">
               Why Choose ZPPS
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              We are dedicated to providing Cambridge IGCSE excellence that shapes future global leaders
+              We are dedicated to providing Cambridge IGCSE excellence that shapes future global leaders through innovative education and holistic development
             </p>
           </div>
         
@@ -693,6 +1059,20 @@ const HomePage = () => {
             {whyChooseUsSections.map((section, index) => (
               <WhyChooseUsCard key={index} {...section} index={index} />
             ))}
+          </div>
+          
+          {/* Call to Action */}
+          <div className="text-center mt-16">
+            <div className="inline-block relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 blur-2xl opacity-60 animate-pulse"></div>
+              <Link 
+                to="/admissions" 
+                className="relative bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-12 py-6 rounded-full text-xl font-bold shadow-2xl hover:shadow-green-500/25 transform hover:scale-105 transition-all duration-300 flex items-center space-x-3 group"
+              >
+                <span>Start Your Journey Today</span>
+                <RocketLaunchIcon className="h-6 w-6 group-hover:animate-bounce" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
