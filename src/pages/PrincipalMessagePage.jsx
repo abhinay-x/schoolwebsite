@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaQuoteLeft, FaQuoteRight, FaGraduationCap, FaHeart, FaStar, FaAward, FaUsers, FaLightbulb, FaGlobe, FaTrophy } from 'react-icons/fa';
+import principalImg from '../assets/Images/principal.jpg';
 
 const PrincipalMessagePage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,8 +28,8 @@ const PrincipalMessagePage = () => {
     };
   }, []);
 
-  // Mock image - replace with actual image path
-  const principalImage = "../src/assets/Images/principal.jpg";
+  // Principal image imported properly for Vercel deployment
+  const principalImage = principalImg;
 
   const highlights = [
     { icon: <FaGraduationCap className="w-6 h-6" />, text: "Cambridge International Centre", color: "from-blue-500 to-cyan-500" },

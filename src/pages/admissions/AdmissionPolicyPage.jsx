@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, EffectCards } from 'swiper/modules';
 import { FaGraduationCap, FaFileAlt, FaCalendarAlt, FaDollarSign, FaUserGraduate, FaClipboardCheck, FaUsers, FaStar, FaArrowRight, FaSchool, FaAward, FaHeart, FaLightbulb } from 'react-icons/fa';
@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
 
 const AdmissionPolicyPage = () => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredPolicy, setHoveredPolicy] = useState(null);
   const [selectedStep, setSelectedStep] = useState(0);
@@ -330,7 +331,7 @@ const AdmissionPolicyPage = () => {
                     For more information about our admission process, please contact our admissions office. We're here to guide you every step of the way.
                   </p>
                   <button
-                    onClick={() => window.location.href = '/contact'}
+                    onClick={() => navigate('/contact')}
                     className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-blue-600 hover:to-purple-600"
                   >
                     <span className="mr-3">Contact Admissions</span>
