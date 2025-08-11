@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaQuoteLeft, FaQuoteRight, FaUserTie, FaLightbulb, FaStar, FaGem, FaRocket, FaHeart, FaCrown, FaHandshake, FaAward, FaBrain } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 import chairmanImage from '../assets/Images/chairman.jpg';
 
 const ChairmanMessagePage = () => {
@@ -81,7 +82,11 @@ const ChairmanMessagePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-blue-100 dark:from-gray-900 dark:via-emerald-900/20 dark:to-blue-900/20 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-800 dark:to-gray-900 relative overflow-hidden">
+      <Helmet>
+        <title>Chairman's Message - ZPPSS</title>
+        <meta name="description" content="Read the inspiring message from our Chairman about our commitment to excellence in education at Zomba Primary School." />
+      </Helmet>
       {/* Enhanced Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div 

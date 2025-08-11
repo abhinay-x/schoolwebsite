@@ -183,7 +183,7 @@ const ContactPage = () => {
       setFormStatus({
         isSubmitting: false,
         isSuccess: false,
-        error: 'Failed to send message. Please try again.'
+        error: 'Failed to send. Sorry for the inconvenience caused. Please try with Direct Mail or Contact ID. Thank you 😊!'
       });
     }
   };

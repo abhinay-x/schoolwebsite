@@ -7,6 +7,8 @@ import { BanknotesIcon, BookOpenIcon, DocumentCheckIcon, CurrencyDollarIcon } fr
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
+import { FaDownload } from 'react-icons/fa';
+import feePDF from '../../assets/files/School Fee\'s 2025-26.pdf';
 
 const FeeStructurePage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,11 +34,11 @@ const FeeStructurePage = () => {
       description: '(Foundation Stage 2 & Foundation Stage 1)',
       icon: <FaHeart className="w-6 h-6" />,
       items: [
-        { name: 'Term Fees', amount: '340,000', isAnnual: false, icon: <FaDollarSign className="w-4 h-4" /> },
+        { name: 'Term Fees', amount: '450,000', isAnnual: false, icon: <FaDollarSign className="w-4 h-4" /> },
         { name: 'Books Fees', amount: '100,000', isAnnual: true, icon: <FaBook className="w-4 h-4" /> },
       ],
-      total: '440,000',
-      subsequentTerms: '340,000',
+      total: '550,000',
+      subsequentTerms: '450,000',
       gradient: 'from-pink-500/20 via-rose-500/10 to-red-500/20',
       glowColor: 'shadow-pink-500/25',
       color: 'text-pink-500',
@@ -48,12 +50,12 @@ const FeeStructurePage = () => {
       description: '(Year 1 up to Year 6)',
       icon: <FaBook className="w-6 h-6" />,
       items: [
-        { name: 'Term Fees', amount: '525,000', isAnnual: false, icon: <FaDollarSign className="w-4 h-4" /> },
-        { name: 'Books Fees', amount: '200,000', isAnnual: true, icon: <FaBook className="w-4 h-4" /> },
+        { name: 'Term Fees', amount: '700,000', isAnnual: false, icon: <FaDollarSign className="w-4 h-4" /> },
+        { name: 'Books Fees', amount: '250,000', isAnnual: true, icon: <FaBook className="w-4 h-4" /> },
         { name: 'Examination Fees', amount: '50,000', isAnnual: true, icon: <FaCalculator className="w-4 h-4" /> },
       ],
-      total: '775,000',
-      subsequentTerms: '525,000',
+      total: '1,000,000',
+      subsequentTerms: '700,000',
       gradient: 'from-blue-500/20 via-indigo-500/10 to-purple-500/20',
       glowColor: 'shadow-blue-500/25',
       color: 'text-blue-500',
@@ -65,12 +67,12 @@ const FeeStructurePage = () => {
       description: '(Year 7, 8 & 9)',
       icon: <FaGraduationCap className="w-6 h-6" />,
       items: [
-        { name: 'Term Fees', amount: '700,000', isAnnual: false, icon: <FaDollarSign className="w-4 h-4" /> },
-        { name: 'Books Fees', amount: '250,000', isAnnual: true, icon: <FaBook className="w-4 h-4" /> },
-        { name: 'Examination Fees', amount: '75,000', isAnnual: true, icon: <FaCalculator className="w-4 h-4" /> },
+        { name: 'Term Fees', amount: '980,000', isAnnual: false, icon: <FaDollarSign className="w-4 h-4" /> },
+        { name: 'Books Fees', amount: '300,000', isAnnual: true, icon: <FaBook className="w-4 h-4" /> },
+        { name: 'Examination Fees', amount: '70,000', isAnnual: true, icon: <FaCalculator className="w-4 h-4" /> },
       ],
-      total: '1,025,000',
-      subsequentTerms: '700,000',
+      total: '1,350,000',
+      subsequentTerms: '980,000',
       gradient: 'from-emerald-500/20 via-teal-500/10 to-cyan-500/20',
       glowColor: 'shadow-emerald-500/25',
       color: 'text-emerald-500',
@@ -82,12 +84,12 @@ const FeeStructurePage = () => {
       description: '(Year 10 & 11)',
       icon: <FaUniversity className="w-6 h-6" />,
       items: [
-        { name: 'Term Fees', amount: '800,000', isAnnual: false, icon: <FaDollarSign className="w-4 h-4" /> },
-        { name: 'Books Fees', amount: '450,000', isAnnual: true, icon: <FaBook className="w-4 h-4" /> },
+        { name: 'Term Fees', amount: '1,100,000', isAnnual: false, icon: <FaDollarSign className="w-4 h-4" /> },
+        { name: 'Books Fees', amount: '600,000', isAnnual: true, icon: <FaBook className="w-4 h-4" /> },
         { name: 'Examination Fees', amount: '100,000', isAnnual: true, icon: <FaCalculator className="w-4 h-4" /> },
       ],
-      total: '1,350,000',
-      subsequentTerms: '800,000',
+      total: '1,800,000',
+      subsequentTerms: '1,100,000',
       gradient: 'from-orange-500/20 via-yellow-500/10 to-red-500/20',
       glowColor: 'shadow-orange-500/25',
       color: 'text-orange-500',
@@ -201,12 +203,20 @@ const FeeStructurePage = () => {
             </h1>
             <h2 className="text-3xl font-semibold text-emerald-500 dark:text-emerald-400 mb-4 bounce-gentle">
               <HiSparkles className="inline w-8 h-8 mr-2" />
-              ACADEMIC YEAR 2024/25
+              ACADEMIC YEAR 2025/26
             </h2>
             <div className="w-32 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full glow-animation"></div>
             <p className="text-xl text-gray-600 dark:text-gray-300 mt-6 max-w-3xl mx-auto leading-relaxed">
               Transparent, competitive pricing for quality education. Invest in your child's future with our comprehensive fee structure.
             </p>
+            <a 
+              href={feePDF} 
+              download="ZPPSS_Fee_Structure_2025-26.pdf"
+              className="inline-flex items-center bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg mt-8"
+            >
+              <FaDownload className="mr-2" />
+              Download Fee Structure (2025-26)
+            </a>
           </div>
 
           {/* Stats Section */}

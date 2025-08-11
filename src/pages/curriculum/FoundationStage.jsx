@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
 import { FaGraduationCap, FaStar, FaArrowRight, FaPlay, FaPause, FaUsers, FaBookOpen, FaHeart, FaMagic } from 'react-icons/fa';
 import { HiSparkles, HiAcademicCap, HiHeart, HiStar } from 'react-icons/hi';
+import { Helmet } from 'react-helmet';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
@@ -137,7 +138,12 @@ export default function FoundationStage() {
         }
       `}</style>
 
-      <div className="min-h-screen relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-gray-900 relative overflow-hidden">
+        <Helmet>
+          <title>Foundation Stage - ZPPSS</title>
+          <meta name="description" content="Discover our Foundation Stage program designed to nurture young minds with engaging activities and comprehensive early childhood education." />
+        </Helmet>
+
         {/* Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-slate-900 dark:via-indigo-900 dark:to-purple-900">
           <div className="absolute inset-0 opacity-20" style={{

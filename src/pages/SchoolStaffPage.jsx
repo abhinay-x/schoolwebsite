@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaStar, FaQuoteLeft, FaUsers, FaGraduationCap, FaHeart, FaTrophy, FaChevronLeft, FaChevronRight, FaGem, FaAward } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 
 // Import staff images
 import yaminiImage from '../assets/Images/staff/yamini.jpg';
@@ -239,7 +240,11 @@ export default function SchoolStaffPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/20 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-800 dark:to-gray-900 relative overflow-hidden">
+      <Helmet>
+        <title>School Staff - ZPPSS</title>
+        <meta name="description" content="Meet our dedicated team of professional educators and staff members who are committed to providing excellence in education at Zomba Primary School." />
+      </Helmet>
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div 

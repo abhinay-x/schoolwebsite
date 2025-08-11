@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
-import { FaGraduationCap, FaStar, FaArrowRight, FaUsers, FaBookOpen, FaAward, FaMagic, FaLightbulb, FaRocket, FaGlobe } from 'react-icons/fa';
-import { HiSparkles, HiAcademicCap, HiLightBulb, HiStar } from 'react-icons/hi';
+import { FaGraduationCap, FaStar, FaArrowRight, FaPlay, FaPause, FaUsers, FaBookOpen, FaHeart, FaMagic, FaAward, FaTrophy, FaRocket, FaLightbulb, FaGlobe } from 'react-icons/fa';
+import { HiSparkles, HiAcademicCap, HiHeart, HiStar, HiLightBulb } from 'react-icons/hi';
+import { Helmet } from 'react-helmet';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
@@ -107,6 +108,10 @@ export default function IGCSEPage() {
 
   return (
     <>
+      <Helmet>
+        <title>IGCSE Program - ZPPSS</title>
+        <meta name="description" content="Explore our comprehensive IGCSE program designed to prepare students for international qualifications and global opportunities." />
+      </Helmet>
       {/* Custom CSS for advanced animations */}
       <style>{`
         @keyframes float {

@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, EffectCreative } from 'swiper/modules';
-import { FaCalendarAlt, FaClock, FaGraduationCap, FaTrophy, FaBookOpen, FaUsers, FaStar, FaArrowRight, FaSchool, FaAward, FaHeart } from 'react-icons/fa';
+import { FaCalendarAlt, FaClock, FaGraduationCap, FaTrophy, FaBookOpen, FaUsers, FaStar, FaArrowRight, FaSchool, FaAward, FaHeart, FaEnvelope } from 'react-icons/fa';
 import { HiSparkles, HiCalendar, HiClock, HiAcademicCap, HiStar, HiLightBulb } from 'react-icons/hi';
+import { Helmet } from 'react-helmet';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-creative';
@@ -135,15 +136,20 @@ export default function AcademicCalendarPage() {
         .pulse-animation { animation: pulse 4s ease-in-out infinite; }
       `}</style>
 
-      <div className="min-h-screen relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-gray-900 dark:via-emerald-900/20 dark:to-gray-900 relative overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-slate-900 dark:via-emerald-900 dark:to-teal-900">
-          <div className="absolute inset-0 opacity-25" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310B981' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-13.807-11.193-25-25-25s-25 11.193-25 25 11.193 25 25 25 25-11.193 25-25zm25-25c0-13.807-11.193-25-25-25s-25 11.193-25 25 11.193 25 25 25 25-11.193 25-25z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-          
-          {/* Floating Elements */}
-          <div className="absolute top-20 left-10 w-44 h-44 bg-gradient-to-r from-emerald-400/12 to-teal-400/12 dark:from-emerald-400/25 dark:to-teal-400/25 rounded-full blur-xl float-animation"></div>
+        <div className="absolute inset-0 opacity-25" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310B981' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-13.807-11.193-25-25-25s-25 11.193-25 25 11.193 25 25 25 25-11.193 25-25zm25-25c0-13.807-11.193-25-25-25s-25 11.193-25 25 11.193 25 25 25 25-11.193 25-25z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }}></div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-44 h-44 bg-gradient-to-r from-emerald-400/12 to-teal-400/12 dark:from-emerald-400/25 dark:to-teal-400/25 rounded-full blur-xl float-animation"></div>
+        <div className="absolute top-60 right-20 w-36 h-36 bg-gradient-to-r from-blue-400/12 to-indigo-400/12 dark:from-blue-400/25 dark:to-indigo-400/25 rounded-full blur-xl float-animation" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-40 left-1/4 w-40 h-40 bg-gradient-to-r from-orange-400/12 to-red-400/12 dark:from-orange-400/25 dark:to-red-400/25 rounded-full blur-xl float-animation" style={{animationDelay: '4s'}}></div>
+        
+        {/* Calendar Icons */}
+        <div className="absolute top-1/4 right-1/4 text-emerald-300/20 dark:text-emerald-300/30 pulse-animation">
+          <FaCalendarAlt className="w-16 h-16" />
           <div className="absolute top-60 right-20 w-36 h-36 bg-gradient-to-r from-blue-400/12 to-indigo-400/12 dark:from-blue-400/25 dark:to-indigo-400/25 rounded-full blur-xl float-animation" style={{animationDelay: '2s'}}></div>
           <div className="absolute bottom-40 left-1/4 w-40 h-40 bg-gradient-to-r from-orange-400/12 to-red-400/12 dark:from-orange-400/25 dark:to-red-400/25 rounded-full blur-xl float-animation" style={{animationDelay: '4s'}}></div>
           
@@ -293,6 +299,14 @@ export default function AcademicCalendarPage() {
               >
                 <FaGraduationCap className="w-5 h-5 mr-2" />
                 View IGCSE Program
+                <FaArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+              <Link 
+                to="/contact" 
+                className="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                <FaEnvelope className="w-5 h-5 mr-2" />
+                Contact Office
                 <FaArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </div>
