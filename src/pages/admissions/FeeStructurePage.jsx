@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
 import { FaDownload } from 'react-icons/fa';
-import feePDF from '../../assets/files/School Fee\'s 2025-26.pdf';
+import feePDF from '/files/School Fee\'s 2025-26.pdf';
 
 const FeeStructurePage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -113,8 +113,8 @@ const FeeStructurePage = () => {
     },
     {
       icon: <FaUsers className="w-6 h-6" />,
-      title: 'Sibling Discounts',
-      description: '10% for 2nd child, 15% for 3rd child and beyond',
+      title: 'Smart Investment in Future',
+      description: 'International standard education at locally affordable fees - the smartest investment in your child\'s global future',
       color: 'text-emerald-500'
     },
     {

@@ -10,11 +10,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 
 // Import images
-import fs1 from '../../assets/Images/curriculum/cr1.jpg';
-import fs2 from '../../assets/Images/curriculum/cr2.jpeg';
-import fs3 from '../../assets/Images/curriculum/cr3.jpeg';
-import fs4 from '../../assets/Images/curriculum/cr4.jpeg';
-import fs8 from '../../assets/Images/curriculum/cr8.jpeg';
+import fs1 from '/images/curriculum/cr1.jpg';
+import fs2 from '/images/curriculum/cr2.jpeg';
+import fs3 from '/images/curriculum/cr3.jpeg';
+import fs4 from '/images/curriculum/cr4.jpeg';
+import fs8 from '/images/curriculum/cr8.jpeg';
 
 export default function FoundationStage() {
   const [isVisible, setIsVisible] = useState(false);

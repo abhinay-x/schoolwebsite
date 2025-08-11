@@ -4,7 +4,7 @@ import { Pagination, Autoplay, EffectCards } from 'swiper/modules';
 import { FaDownload, FaFileAlt, FaClipboardList, FaUserGraduate, FaSchool, FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle, FaExclamationTriangle, FaArrowRight, FaStar, FaHeart, FaLightbulb, FaUsers, FaAward } from 'react-icons/fa';
 import { HiSparkles, HiAcademicCap, HiDocumentText, HiOfficeBuilding, HiUserCircle } from 'react-icons/hi';
 import { DocumentTextIcon, ArrowDownTrayIcon, BuildingOffice2Icon, UserCircleIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
-import applicationPdf from '../../assets/files/application.pdf';
+import applicationPdf from '/files/application.pdf';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';

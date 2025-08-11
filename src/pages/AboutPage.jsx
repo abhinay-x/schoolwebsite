@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import bg1 from '../assets/Images/bg1.jpg';
-import bg2 from '../assets/Images/bg2.jpg';
+import bg1 from '/images/bg1.jpg';
+import bg2 from '/images/bg2.jpg';
 
 const VisionMission = () => (
   <div className="container mx-auto px-4 py-8">

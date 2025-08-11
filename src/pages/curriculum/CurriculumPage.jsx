@@ -24,7 +24,7 @@ const curriculumSections = [
     title: 'IGCSE',
     description: 'International General Certificate of Secondary Education',
     subtitle: 'Cambridge Excellence',
-    path: '/curriculum/igcse',
+    path: '/images/curriculum/igcse',
     primaryIcon: <HiAcademicCap className="w-10 h-10 text-blue-600" />,
     secondaryIcon: <FaGraduationCap className="w-6 h-6 text-blue-400" />,
     gradient: 'from-blue-500/20 via-cyan-500/10 to-teal-500/20',

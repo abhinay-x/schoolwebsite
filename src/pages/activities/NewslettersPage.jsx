@@ -12,10 +12,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
 
 // Import newsletter images
-import nl1 from '../../assets/Images/newsletter/nl1.jpg';
-import nl2 from '../../assets/Images/newsletter/nl2.jpg';
-import nl3 from '../../assets/Images/newsletter/nl3.jpg';
-import nl4 from '../../assets/Images/newsletter/nl4.jpg';
+import nl1 from '/images/newsletter/nl1.jpg';
+import nl2 from '/images/newsletter/nl2.jpg';
+import nl3 from '/images/newsletter/nl3.jpg';
+import nl4 from '/images/newsletter/nl4.jpg';
 
 // Newsletter data with enhanced properties
 const newsletterData = [

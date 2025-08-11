@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaQuoteLeft, FaQuoteRight, FaUserTie, FaLightbulb, FaStar, FaGem, FaRocket, FaHeart, FaCrown, FaHandshake, FaAward, FaBrain } from 'react-icons/fa';
 import { Helmet } from 'react-helmet';
-import chairmanImage from '../assets/Images/chairman.jpg';
+import chairmanImage from '/images/chairman.jpg';
 
 const ChairmanMessagePage = () => {
   const [isVisible, setIsVisible] = useState(false);

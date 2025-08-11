@@ -3,12 +3,12 @@ import { FaStar, FaQuoteLeft, FaUsers, FaGraduationCap, FaHeart, FaTrophy, FaChe
 import { Helmet } from 'react-helmet';
 
 // Import staff images
-import yaminiImage from '../assets/Images/staff/yamini.jpg';
-import sellenjeImage from '../assets/Images/staff/sellenje.jpg';
-import hellenImage from '../assets/Images/staff/hellen.jpg';
-import shaggyImage from '../assets/Images/staff/shaggy.jpg';
-import crispineImage from '../assets/Images/staff/crispine.jpg';
-import graceImage from '../assets/Images/staff/grace.jpg';
+import yaminiImage from '/images/staff/yamini.jpg';
+import sellenjeImage from '/images/staff/sellenje.jpg';
+import hellenImage from '/images/staff/hellen.jpg';
+import shaggyImage from '/images/staff/shaggy.jpg';
+import crispineImage from '/images/staff/crispine.jpg';
+import graceImage from '/images/staff/grace.jpg';
 
 const StaffMember = ({ image, name, role, index }) => {
   const [isHovered, setIsHovered] = useState(false);

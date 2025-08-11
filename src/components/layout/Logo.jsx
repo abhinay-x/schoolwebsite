@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoImage from '../../assets/Images/logo/ZPPSS_Logo.png';
+import logoImage from '/images/logo/ZPPSS_Logo.png';
 
 const Logo = () => {
   return (

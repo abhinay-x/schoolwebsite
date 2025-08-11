@@ -10,11 +10,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 
 // Import images
-import ig1 from '../../assets/Images/igcse/ig1.jpg';
-import ig2 from '../../assets/Images/igcse/ig2.jpg';
-import ig3 from '../../assets/Images/igcse/ig3.jpeg';
-import ig4 from '../../assets/Images/igcse/ig4.jpeg';
-import ig8 from '../../assets/Images/igcse/ig8.jpg';
+import ig1 from '/images/igcse/ig1.jpg';
+import ig2 from '/images/igcse/ig2.jpg';
+import ig3 from '/images/igcse/ig3.jpeg';
+import ig4 from '/images/igcse/ig4.jpeg';
+import ig8 from '/images/igcse/ig8.jpg';
 
 export default function IGCSEPage() {
   const [isVisible, setIsVisible] = useState(false);

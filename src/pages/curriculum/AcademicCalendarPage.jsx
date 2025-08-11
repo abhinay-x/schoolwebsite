@@ -269,7 +269,7 @@ export default function AcademicCalendarPage() {
                     Academic year 2025/26 will commence on Tuesday, 2nd September 2025. Please mark your calendars and prepare for another exciting year of learning and growth.
                   </p>
                   <a 
-                    href="../assets/files/ay_2025-26_calender.pdf" 
+                    href="src/assets/files/ay_2025-26_calender.pdf" 
                     download="Academic_Calendar_2025-26.pdf"
                     className="inline-flex items-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-700 transform hover:-translate-y-1"
                   >

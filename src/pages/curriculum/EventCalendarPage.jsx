@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
-import eventCalendarImage from '../../assets/Images/eventcalender/ft24.jpg';
+import eventCalendarImage from '/images/eventcalender/ft24.jpg';
 
 export default function EventCalendarPage() {
   const [isVisible, setIsVisible] = useState(false);

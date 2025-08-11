@@ -15,7 +15,7 @@ import 'swiper/css/effect-cards';
 const tripImages = [
   { 
     id: 1, 
-    src: '/src/assets/Images/trips/1.jpg', 
+    src: '/public/images/trips/1.jpg', 
     alt: 'Educational Trip 1',
     title: 'Nature Discovery',
     location: 'National Park',
@@ -28,7 +28,7 @@ const tripImages = [
   },
   { 
     id: 2, 
-    src: '/src/assets/Images/trips/2.jpg', 
+    src: '/public/images/trips/2.jpg', 
     alt: 'Educational Trip 2',
     title: 'Historical Journey',
     location: 'Heritage Site',
@@ -41,7 +41,7 @@ const tripImages = [
   },
   { 
     id: 3, 
-    src: '/src/assets/Images/trips/4.jpg', 
+    src: '/public/images/trips/4.jpg', 
     alt: 'Educational Trip 4',
     title: 'Science Exploration',
     location: 'Science Museum',
@@ -54,7 +54,7 @@ const tripImages = [
   },
   { 
     id: 4, 
-    src: '/src/assets/Images/trips/5.jpg', 
+    src: '/public/images/trips/5.jpg', 
     alt: 'Educational Trip 5',
     title: 'Cultural Exchange',
     location: 'Cultural Center',
@@ -67,7 +67,7 @@ const tripImages = [
   },
   { 
     id: 5, 
-    src: '/src/assets/Images/trips/6.jpg', 
+    src: '/public/images/trips/6.jpg', 
     alt: 'Educational Trip 6',
     title: 'Environmental Study',
     location: 'Eco Reserve',
@@ -80,7 +80,7 @@ const tripImages = [
   },
   { 
     id: 6, 
-    src: '/src/assets/Images/trips/7.jpg', 
+    src: '/public/images/trips/7.jpg', 
     alt: 'Educational Trip 7',
     title: 'Art & Creativity',
     location: 'Art Gallery',
@@ -93,7 +93,7 @@ const tripImages = [
   },
   { 
     id: 7, 
-    src: '/src/assets/Images/trips/8.jpg', 
+    src: '/public/images/trips/8.jpg', 
     alt: 'Educational Trip 8',
     title: 'Technology Innovation',
     location: 'Tech Hub',
@@ -106,7 +106,7 @@ const tripImages = [
   },
   { 
     id: 8, 
-    src: '/src/assets/Images/trips/9.jpg', 
+    src: '/public/images/trips/9.jpg', 
     alt: 'Educational Trip 9',
     title: 'Agricultural Learning',
     location: 'Farm Visit',
@@ -119,7 +119,7 @@ const tripImages = [
   },
   { 
     id: 9, 
-    src: '/src/assets/Images/trips/10.jpg', 
+    src: '/public/images/trips/10.jpg', 
     alt: 'Educational Trip 10',
     title: 'Marine Biology',
     location: 'Aquarium',
@@ -132,7 +132,7 @@ const tripImages = [
   },
   { 
     id: 10, 
-    src: '/src/assets/Images/trips/11.jpg', 
+    src: '/public/images/trips/11.jpg', 
     alt: 'Educational Trip 11',
     title: 'Geography Field Study',
     location: 'Mountain Region',
@@ -145,7 +145,7 @@ const tripImages = [
   },
   { 
     id: 11, 
-    src: '/src/assets/Images/trips/13.jpg', 
+    src: '/public/images/trips/13.jpg', 
     alt: 'Educational Trip 13',
     title: 'Community Service',
     location: 'Local Community',

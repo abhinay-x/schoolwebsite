@@ -27,10 +27,10 @@ import {
   RocketLaunchIcon
 } from '@heroicons/react/24/solid';
 
-import bg1 from '../assets/Images/bg1.jpg';
-import bg2 from '../assets/Images/bg2.jpg';
-import bg3 from '../assets/Images/bg3.jpg';
-import bg4 from '../assets/Images/bg4.jpg';
+import bg1 from '/images/bg1.jpg';
+import bg2 from '/images/bg2.jpg';
+import bg3 from '/images/bg3.jpg';
+import bg4 from '/images/bg4.jpg';
 
 // Enhanced floating particles with mouse interaction
 const FloatingParticles = ({ mousePosition }) => {

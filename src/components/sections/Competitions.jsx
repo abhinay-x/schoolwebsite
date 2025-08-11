@@ -14,27 +14,27 @@ const competitions = [
   {
     title: 'ESSAY WRITING',
     description: 'Our students are involved in essay writing to stimulate their creative skills and bring their imagination close to reality. They are exposed to writing all forms of essays enabling them to develop their minds to a greater writing scope. The best writers are awarded with deserving awards, to commend their ability and encourage others.',
-    image: '/src/assets/Images/competitions/c1.jpeg'
+    image: '/competitions/c1.jpeg'
   },
   {
     title: 'Quiz',
     description: 'While studying different subjects offered at the school, the ability to grasp, recall and explain contexts is tested through the Quiz Competitions which are held at the school. Students enjoy answering questions covering wide areas of study, not only in the school text books.',
-    image: '/src/assets/Images/competitions/c2.jpeg'
+    image: '/competitions/c2.jpeg'
   },
   {
     title: 'SPELL BEE',
     description: 'Our students achieve perfection in English and French Grammar by contesting in spelling competitions either at class or school level. Perfection in languages is achieved and this has made the school one of the best centres of language.',
-    image: '/src/assets/Images/competitions/c3.jpeg'
+    image: '/competitions/c3.jpeg'
   },
   {
     title: 'Debate',
     description: 'Debating opens up the critical faculty within the psychology of our students. Critical thinking, reasoning and clear analysis of issues is sharpened through debates. But this is not all, it empowers the skills of public thinking and speech.',
-    image: '/src/assets/Images/competitions/c1.jpeg'
+    image: '/competitions/c1.jpeg'
   },
   {
     title: 'STORY TELLING',
     description: 'Rooted within a diverse cultural set up, the school enrolls students of different cultural and social backgrounds. This blending makes our school a best Centre of interactive learning at which students learn from orals from different cultures. These orals bring different forms of knowledge which in turn shape up the real person needed by the society.',
-    image: '/src/assets/Images/competitions/c2.jpeg'
+    image: '/competitions/c2.jpeg'
   }
 ];
 

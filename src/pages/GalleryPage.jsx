@@ -7,36 +7,36 @@ const generateGalleryImages = () => {
   // Graduation Ceremony 2024 - First 30 images
   for (let i = 1; i <= 30; i++) {
     images.push({
-      src: `/src/assets/Images/gallery/graduation_ceremony_24/${i}.jpg`,
+      src: `/images/gallery/graduation_ceremony_24/${i}.jpg`,
       alt: `Graduation Ceremony 2024 - Image ${i}`,
       category: 'Graduation Ceremony 2024'
+    });
+  }
+  
+  // Graduation Ceremony Annual Sports - First 30 images
+  for (let i = 1; i <= 30; i++) {
+    images.push({
+      src: `/images/gallery/graduation_ceremony_annual_sports/${i}.jpg`,
+      alt: `Annual Sports - Image ${i}`,
+      category: 'Annual Sports'
     });
   }
   
   // Graduation Day - First 25 images
   for (let i = 1; i <= 25; i++) {
     images.push({
-      src: `/src/assets/Images/gallery/graduation_day/${i}.jpg`,
+      src: `/images/gallery/graduation_day/${i}.jpg`,
       alt: `Graduation Day - Image ${i}`,
       category: 'Graduation Day'
     });
   }
   
-  // Prize Giving - Check if folder exists and add images
+  // Prize Giving - First 20 images
   for (let i = 1; i <= 20; i++) {
     images.push({
-      src: `/src/assets/Images/gallery/prize_giving/${i}.jpg`,
+      src: `/images/gallery/prize_giving/${i}.jpg`,
       alt: `Prize Giving Ceremony - Image ${i}`,
       category: 'Prize Giving'
-    });
-  }
-  
-  // Annual Sports - Check if folder exists and add images
-  for (let i = 1; i <= 15; i++) {
-    images.push({
-      src: `/src/assets/Images/gallery/graduation_ceremony_annual_sports/${i}.jpg`,
-      alt: `Annual Sports Event - Image ${i}`,
-      category: 'Annual Sports'
     });
   }
   

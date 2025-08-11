@@ -16,7 +16,7 @@ import 'swiper/css/effect-cards';
 const sportsImages = [
   { 
     id: 1, 
-    src: '/src/assets/Images/sports/1.jpg', 
+    src: '/public/images/sports/1.jpg', 
     alt: 'Sports Day 2021',
     title: 'Track & Field Events',
     event: 'Athletics Competition',
@@ -29,7 +29,7 @@ const sportsImages = [
   },
   { 
     id: 2, 
-    src: '/src/assets/Images/sports/2.jpg', 
+    src: '/public/images/sports/2.jpg', 
     alt: 'Sports Day 2021',
     title: 'Football Championship',
     event: 'Inter-House Football',
@@ -42,7 +42,7 @@ const sportsImages = [
   },
   { 
     id: 3, 
-    src: '/src/assets/Images/sports/3.jpg', 
+    src: '/public/images/sports/3.jpg', 
     alt: 'Sports Day 2021',
     title: 'Basketball Tournament',
     event: 'School Basketball League',
@@ -55,7 +55,7 @@ const sportsImages = [
   },
   { 
     id: 4, 
-    src: '/src/assets/Images/sports/4.jpg', 
+    src: '/public/images/sports/4.jpg', 
     alt: 'Sports Day 2021',
     title: 'Swimming Competition',
     event: 'Aquatic Sports',
@@ -68,7 +68,7 @@ const sportsImages = [
   },
   { 
     id: 5, 
-    src: '/src/assets/Images/sports/5.jpg', 
+    src: '/public/images/sports/5.jpg', 
     alt: 'Sports Day 2021',
     title: 'Volleyball Championship',
     event: 'Team Volleyball',
@@ -81,7 +81,7 @@ const sportsImages = [
   },
   { 
     id: 6, 
-    src: '/src/assets/Images/sports/6.jpg', 
+    src: '/public/images/sports/6.jpg', 
     alt: 'Sports Day 2021',
     title: 'Tennis Tournament',
     event: 'Individual Tennis',
@@ -94,7 +94,7 @@ const sportsImages = [
   },
   { 
     id: 7, 
-    src: '/src/assets/Images/sports/7.jpg', 
+    src: '/public/images/sports/7.jpg', 
     alt: 'Sports Day 2021',
     title: 'Cricket Championship',
     event: 'School Cricket League',
@@ -107,7 +107,7 @@ const sportsImages = [
   },
   { 
     id: 8, 
-    src: '/src/assets/Images/sports/8.jpg', 
+    src: '/public/images/sports/8.jpg', 
     alt: 'Sports Day 2021',
     title: 'Badminton Tournament',
     event: 'Racquet Sports',
@@ -120,7 +120,7 @@ const sportsImages = [
   },
   { 
     id: 9, 
-    src: '/src/assets/Images/sports/9.jpg', 
+    src: '/public/images/sports/9.jpg', 
     alt: 'Sports Day 2021',
     title: 'Relay Races',
     event: 'Team Athletics',
@@ -133,7 +133,7 @@ const sportsImages = [
   },
   { 
     id: 10, 
-    src: '/src/assets/Images/sports/10.jpg', 
+    src: '/public/images/sports/10.jpg', 
     alt: 'Sports Day 2021',
     title: 'Field Events',
     event: 'Throwing & Jumping',
@@ -146,7 +146,7 @@ const sportsImages = [
   },
   { 
     id: 11, 
-    src: '/src/assets/Images/sports/11.jpg', 
+    src: '/public/images/sports/11.jpg', 
     alt: 'Sports Day 2021',
     title: 'Award Ceremony',
     event: 'Prize Distribution',
@@ -159,7 +159,7 @@ const sportsImages = [
   },
   { 
     id: 12, 
-    src: '/src/assets/Images/sports/12.jpg', 
+    src: '/public/images/sports/12.jpg', 
     alt: 'Sports Day 2021',
     title: 'Team Sports',
     event: 'Collaborative Games',
@@ -172,7 +172,7 @@ const sportsImages = [
   },
   { 
     id: 13, 
-    src: '/src/assets/Images/sports/13.jpg', 
+    src: '/public/images/sports/13.jpg', 
     alt: 'Sports Day 2021',
     title: 'Opening Ceremony',
     event: 'Sports Day Launch',
@@ -185,7 +185,7 @@ const sportsImages = [
   },
   { 
     id: 14, 
-    src: '/src/assets/Images/sports/14.jpg', 
+    src: '/public/images/sports/14.jpg', 
     alt: 'Sports Day 2021',
     title: 'Marathon Race',
     event: 'Long Distance Running',
@@ -198,7 +198,7 @@ const sportsImages = [
   },
   { 
     id: 15, 
-    src: '/src/assets/Images/sports/15.jpg', 
+    src: '/public/images/sports/15.jpg', 
     alt: 'Sports Day 2021',
     title: 'Victory Celebration',
     event: 'Championship Finale',

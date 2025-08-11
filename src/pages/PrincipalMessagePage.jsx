@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaQuoteLeft, FaQuoteRight, FaGraduationCap, FaHeart, FaStar, FaAward, FaUsers, FaLightbulb, FaGlobe, FaTrophy } from 'react-icons/fa';
-import principalImg from '../assets/Images/principal.jpg';
+import principalImg from '/images/principal.jpg';
 
 const PrincipalMessagePage = () => {
   const [isVisible, setIsVisible] = useState(false);
