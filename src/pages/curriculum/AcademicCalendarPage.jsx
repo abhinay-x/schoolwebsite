@@ -30,43 +30,43 @@ export default function AcademicCalendarPage() {
     {
       id: 1,
       title: 'FIRST TERM',
-      period: 'SEP-DEC 2024',
+      period: 'SEP-DEC 2025',
       duration: '14 weeks',
       gradient: 'from-emerald-500/20 via-teal-500/10 to-cyan-500/20',
       glowColor: 'shadow-emerald-500/25',
       icon: <FaSchool className="w-6 h-6" />,
       color: 'text-emerald-500',
       events: [
-        { description: 'TERM BEGINS', date: 'Tuesday, 03rd September 2024', type: 'start', icon: <FaCalendarAlt className="w-4 h-4" /> },
-        { description: 'PRIZE GIVING CEREMONY', date: 'Friday, 29th September 2024', type: 'event', icon: <FaTrophy className="w-4 h-4" /> },
-        { description: 'MIDTERM HOLIDAY', date: 'Monday, 14th October – Friday, 18th October 2024', type: 'holiday', icon: <FaHeart className="w-4 h-4" /> },
-        { description: 'MOTHERS DAY HOLIDAY', date: 'Tuesday, 15th October 2024', type: 'holiday', icon: <FaHeart className="w-4 h-4" /> },
-        { description: 'MUFTI DAY', date: 'Thursday, 05th December 2024', type: 'event', icon: <FaStar className="w-4 h-4" /> },
-        { description: 'END OF FIRST TERM', date: 'Friday, 06th December 2024', type: 'end', icon: <FaCalendarAlt className="w-4 h-4" /> }
+        { description: 'TERM BEGINS', date: 'Tuesday, 02nd September 2025', type: 'start', icon: <FaCalendarAlt className="w-4 h-4" /> },
+        { description: 'PRIZE GIVING CEREMONY', date: 'Friday, 26th September 2025', type: 'event', icon: <FaTrophy className="w-4 h-4" /> },
+        { description: 'MIDTERM HOLIDAY', date: 'Monday, 13th October – Friday, 17th October 2025', type: 'holiday', icon: <FaHeart className="w-4 h-4" /> },
+        { description: 'MOTHERS DAY HOLIDAY', date: 'Wednesday, 15th October 2025', type: 'holiday', icon: <FaHeart className="w-4 h-4" /> },
+        { description: 'MUFTI DAY', date: 'Thursday, 04th December 2025', type: 'event', icon: <FaStar className="w-4 h-4" /> },
+        { description: 'END OF FIRST TERM', date: 'Friday, 05th December 2025', type: 'end', icon: <FaCalendarAlt className="w-4 h-4" /> }
       ]
     },
     {
       id: 2,
       title: 'SECOND TERM',
       period: 'JAN-APRIL 2025',
-      duration: '12 weeks',
+      duration: '13 weeks',
       gradient: 'from-blue-500/20 via-indigo-500/10 to-purple-500/20',
       glowColor: 'shadow-blue-500/25',
       icon: <FaBookOpen className="w-6 h-6" />,
       color: 'text-blue-500',
       events: [
-        { description: 'TERM BEGINS', date: 'Tuesday, 07th January 2025', type: 'start', icon: <FaCalendarAlt className="w-4 h-4" /> },
-        { description: 'CHILEMBWE DAY HOLIDAY', date: 'Wednesday 15th January 2025', type: 'holiday', icon: <FaHeart className="w-4 h-4" /> },
-        { description: 'MIDTERM HOLIDAY', date: 'Monday, 17th February – Friday, 21st February 2025', type: 'holiday', icon: <FaHeart className="w-4 h-4" /> },
-        { description: 'MARTYRS DAY HOLIDAY', date: 'Monday, 3rd March 2025', type: 'holiday', icon: <FaHeart className="w-4 h-4" /> },
-        { description: 'ANNUAL SPORTS DAY', date: 'Wednesday, 26th March 2025', type: 'event', icon: <FaTrophy className="w-4 h-4" /> },
-        { description: 'END OF SECOND TERM', date: 'Thursday, 27th March 2025', type: 'end', icon: <FaCalendarAlt className="w-4 h-4" /> }
+        { description: 'TERM BEGINS', date: 'Tuesday, 06th January 2026', type: 'start', icon: <FaCalendarAlt className="w-4 h-4" /> },
+        { description: 'CHILEMBWE DAY HOLIDAY', date: 'Thursday, 15th January 2026', type: 'holiday', icon: <FaHeart className="w-4 h-4" /> },
+        { description: 'MIDTERM HOLIDAY', date: 'Monday, 16th February – Friday, 20th February 2026', type: 'holiday', icon: <FaHeart className="w-4 h-4" /> },
+        { description: 'MARTYRS DAY HOLIDAY', date: 'Tuesday, 3rd March 2026', type: 'holiday', icon: <FaHeart className="w-4 h-4" /> },
+        { description: 'ANNUAL SPORTS DAY', date: 'Wednesday, 25th March 2026', type: 'event', icon: <FaTrophy className="w-4 h-4" /> },
+        { description: 'END OF SECOND TERM', date: 'Friday, 27th March 2026', type: 'end', icon: <FaCalendarAlt className="w-4 h-4" /> }
       ]
     },
     {
       id: 3,
       title: 'THIRD TERM',
-      period: 'APRIL-JULY 2025',
+      period: 'APRIL-JULY 2026',
       duration: '11 weeks',
       gradient: 'from-orange-500/20 via-red-500/10 to-pink-500/20',
       glowColor: 'shadow-orange-500/25',
@@ -167,7 +167,7 @@ export default function AcademicCalendarPage() {
           <div className={`text-center mb-20 ${isVisible ? 'slide-in-up' : 'opacity-0'}`}>
             <div className="inline-flex items-center justify-center p-3 bg-white/20 dark:bg-white/10 backdrop-blur-md rounded-full mb-8 border border-emerald-200/30 dark:border-white/20">
               <HiCalendar className="w-6 h-6 text-emerald-500 dark:text-emerald-400 mr-3" />
-              <span className="text-gray-800 dark:text-white/90 font-semibold">Academic Year 2024-2025</span>
+              <span className="text-gray-800 dark:text-white/90 font-semibold">Academic Year 2025-2026</span>
               <HiSparkles className="w-5 h-5 text-teal-500 dark:text-teal-400 ml-3" />
             </div>
             
@@ -234,7 +234,7 @@ export default function AcademicCalendarPage() {
                         {term.events.map((event, eventIndex) => (
                           <div 
                             key={eventIndex} 
-                            className={`flex items-center justify-between p-3 rounded-xl ${getEventTypeBg(event.type)} backdrop-blur-sm border border-white/20 hover:bg-white/40 dark:hover:bg-white/10 transition-all duration-300 group/event`}
+                            className={`group relative flex items-center justify-between p-3 rounded-xl ${getEventTypeBg(event.type)} backdrop-blur-sm border border-white/20 hover:bg-white/40 dark:hover:bg-white/10 transition-all duration-300 group/event`}
                           >
                             <div className="flex items-center space-x-3">
                               <div className={`${getEventTypeColor(event.type)} group-hover/event:scale-110 transition-transform duration-300`}>
@@ -243,6 +243,9 @@ export default function AcademicCalendarPage() {
                               <div className="font-medium text-gray-800 dark:text-white text-sm">
                                 {event.description}
                               </div>
+                            </div>
+                            <div className="absolute -top-10 right-0 bg-gray-800 dark:bg-gray-700 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg pointer-events-none z-10 border border-white/20">
+                              {event.date}
                             </div>
                           </div>
                         ))}
@@ -269,7 +272,7 @@ export default function AcademicCalendarPage() {
                     Academic year 2025/26 will commence on Tuesday, 2nd September 2025. Please mark your calendars and prepare for another exciting year of learning and growth.
                   </p>
                   <a 
-                    href="src/assets/files/ay_2025-26_calender.pdf" 
+                    href="/files/ay_2025-26_calender.pdf" 
                     download="Academic_Calendar_2025-26.pdf"
                     className="inline-flex items-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-700 transform hover:-translate-y-1"
                   >
