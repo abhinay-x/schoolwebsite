@@ -166,24 +166,24 @@ const VisionMissionPage = () => {
               }`}
               style={{ transitionDelay: `${index * 0.2}s` }}
             >
-              <div className={`${section.bgGradient} rounded-3xl p-8 md:p-12 shadow-2xl backdrop-blur-sm border border-white/20`}>
+              <div className={`${section.bgGradient} rounded-3xl p-6 md:p-8 lg:p-12 shadow-2xl backdrop-blur-sm border border-white/20`}>
                 {/* Section Header */}
-                <div className="flex flex-col md:flex-row items-center mb-8">
-                  <div className={`p-6 rounded-2xl bg-gradient-to-r ${section.gradient} shadow-lg mb-4 md:mb-0 md:mr-8 transform hover:scale-110 transition-transform duration-300`}>
+                <div className="flex flex-col md:flex-row items-center mb-6 md:mb-8 space-y-4 md:space-y-0 md:space-x-6">
+                  <div className={`flex-shrink-0 p-4 md:p-6 rounded-2xl bg-gradient-to-r ${section.gradient} shadow-lg transform hover:scale-110 transition-transform duration-300`}>
                     {section.icon}
                   </div>
-                  <div className="text-center md:text-left">
-                    <h3 className="text-4xl font-bold text-gray-800 dark:text-white mb-2">
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-2">
                       {section.title}
                     </h3>
-                    <p className="text-xl text-gray-600 dark:text-gray-300">
+                    <p className="text-base md:text-lg text-gray-600 dark:text-gray-300">
                       {section.description}
                     </p>
                   </div>
                 </div>
                 
                 {/* Section Content */}
-                <div className="transition-all duration-500">
+                <div className="flex flex-col transition-all duration-500">
                   {section.content}
                 </div>
               </div>

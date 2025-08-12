@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
-import eventCalendarImage from '/images/eventcalender/ft24.jpg';
+import eventCalendarImage from '/images/eventcalender/event_calender_2025.jpg';
 
 export default function EventCalendarPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -31,8 +31,8 @@ export default function EventCalendarPage() {
     {
       id: 1,
       title: 'Annual Sports Day',
-      date: 'March 15, 2024',
-      time: '9:00 AM - 4:00 PM',
+      date: 'will be announced',
+      time: 'will be announced',
       location: 'School Sports Ground',
       category: 'Sports',
       description: 'Join us for our exciting annual sports day featuring track and field events, team competitions, and award ceremonies.',
@@ -45,8 +45,8 @@ export default function EventCalendarPage() {
     {
       id: 2,
       title: 'Science Exhibition',
-      date: 'April 8, 2024',
-      time: '10:00 AM - 6:00 PM',
+      date: 'will be anounced',
+      time: 'will be anounced',
       location: 'Main Auditorium',
       category: 'Academic',
       description: 'Explore innovative science projects and experiments presented by our talented students across all grade levels.',
@@ -59,8 +59,8 @@ export default function EventCalendarPage() {
     {
       id: 3,
       title: 'Cultural Festival',
-      date: 'May 20, 2024',
-      time: '6:00 PM - 10:00 PM',
+      date: 'will be anounced',
+      time: 'will be anounced',
       location: 'School Campus',
       category: 'Cultural',
       description: 'Celebrate diversity and creativity with performances, art exhibitions, and cultural displays from around the world.',
@@ -73,8 +73,8 @@ export default function EventCalendarPage() {
     {
       id: 4,
       title: 'Graduation Ceremony',
-      date: 'June 25, 2024',
-      time: '2:00 PM - 5:00 PM',
+      date: '01st July 2026',
+      time: 'will be anounced',
       location: 'Main Hall',
       category: 'Academic',
       description: 'Celebrate the achievements of our graduating class with a memorable ceremony honoring their academic journey.',
@@ -102,7 +102,7 @@ export default function EventCalendarPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-gray-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-gray-900 relative overflow-x-hidden py-4 sm:py-6 md:py-8">
       <Helmet>
         <title>Event Calendar - ZPPSS</title>
         <meta name="description" content="Stay updated with all upcoming school events, celebrations, and important dates throughout the academic year." />
@@ -195,11 +195,11 @@ export default function EventCalendarPage() {
             <HiSparkles className="w-5 h-5 text-pink-500 dark:text-pink-400 ml-3" />
           </div>
           
-          <h1 className="text-7xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 dark:from-purple-300 dark:via-pink-300 dark:to-indigo-300 bg-clip-text text-transparent mb-8 leading-tight">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 dark:from-purple-300 dark:via-pink-300 dark:to-indigo-300 bg-clip-text text-transparent mb-8 leading-tight">
             Event Calendar
           </h1>
           
-          <p className="text-2xl text-gray-700 dark:text-white/80 max-w-5xl mx-auto leading-relaxed mb-8">
+          <p className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-white/80 max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-5xl mx-auto leading-relaxed mb-4 sm:mb-6 px-4 break-words">
             Discover exciting events, celebrations, and activities that make our school community vibrant and engaging.
             <span className="block mt-3 text-lg text-purple-600 dark:text-purple-300">Join us in creating unforgettable memories and celebrating achievements together.</span>
           </p>
@@ -211,15 +211,15 @@ export default function EventCalendarPage() {
                 <div className={`${stat.color} mb-3 transform group-hover:scale-110 transition-transform duration-300`}>
                   {stat.icon}
                 </div>
-                <div className="text-2xl font-bold text-gray-800 dark:text-white mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-600 dark:text-white/70">{stat.label}</div>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 md:mb-6 px-2 break-words">{stat.value}</h1>
+                <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Calendar Image Section */}
-        <div className={`max-w-6xl mx-auto mb-20 ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: '600ms'}}>
+        <div className={`max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 w-full`}>
           <div className="text-center mb-12">
             <h2 className="text-5xl font-bold text-gray-800 dark:text-white mb-6">
               Academic <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Calendar 2024-25</span>
@@ -231,7 +231,7 @@ export default function EventCalendarPage() {
 
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-indigo-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-70 group-hover:opacity-100"></div>
-            <div className="relative bg-white/40 dark:bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/30 dark:border-white/20 shadow-2xl group-hover:shadow-3xl transition-all duration-500">
+            <div className="relative bg-white/40 dark:bg-white/20 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/30 dark:border-white/20 shadow-2xl group-hover:shadow-3xl transition-all duration-500">
               <div className="overflow-hidden rounded-2xl">
                 <img 
                   src={eventCalendarImage} 
@@ -250,21 +250,21 @@ export default function EventCalendarPage() {
 
         {/* Upcoming Events Section */}
         <div className={`max-w-7xl mx-auto mb-20 ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: '800ms'}}>
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-800 dark:text-white mb-6">
+          <div className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16 w-full">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-3 sm:mb-4 md:mb-6 px-2">
               Upcoming <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">Events</span>
             </h2>
-            <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-white/70 max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8 px-3">
               Don't miss out on these exciting upcoming events and activities at our school.
             </p>
             
             {/* Month Filter */}
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12">
               {months.map((month) => (
                 <button
                   key={month.value}
                   onClick={() => setSelectedMonth(month.value)}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  className={`px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full font-semibold transition-all duration-300 text-xs sm:text-sm ${
                     selectedMonth === month.value
                       ? 'bg-purple-500 text-white shadow-lg shadow-purple-500/25'
                       : 'bg-white/30 dark:bg-white/10 text-gray-700 dark:text-white/80 hover:bg-white/50 dark:hover:bg-white/20'
@@ -277,65 +277,65 @@ export default function EventCalendarPage() {
           </div>
 
           {/* Events Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
             {upcomingEvents.map((event, index) => (
               <div 
                 key={event.id}
-                className={`relative overflow-hidden rounded-3xl transition-all duration-700 transform hover:scale-105 group ${isVisible ? 'slide-in-up' : 'opacity-0'}`}
+                className={`relative overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-700 transform hover:scale-105 group ${isVisible ? 'slide-in-up' : 'opacity-0'}`}
                 style={{animationDelay: `${index * 150 + 1000}ms`}}
                 onMouseEnter={() => setHoveredEvent(event.id)}
                 onMouseLeave={() => setHoveredEvent(null)}
                 onMouseMove={(e) => handleMouseMove(e, event.id)}
               >
                 {/* Glassmorphism Card */}
-                <div className={`relative h-80 bg-gradient-to-br ${event.gradient} backdrop-blur-xl border border-white/30 dark:border-white/20 shadow-2xl ${event.glowColor} group-hover:shadow-3xl transition-all duration-500`}>
+                <div className={`relative min-h-[280px] sm:min-h-[300px] md:min-h-[320px] bg-gradient-to-br ${event.gradient} backdrop-blur-xl border border-white/30 dark:border-white/20 shadow-lg ${event.glowColor} group-hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden w-full`}>
                   
                   {/* Header */}
-                  <div className="p-8 pb-4">
+                  <div className="p-3 sm:p-4 flex-1 overflow-hidden">
                     <div className="flex items-start justify-between mb-6">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-3">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-1.5 sm:p-2">
                         <div className={event.color}>{event.icon}</div>
                       </div>
-                      <div className="bg-white/90 dark:bg-white/80 backdrop-blur-sm rounded-full px-4 py-2">
+                      <div className="bg-white/90 dark:bg-white/80 backdrop-blur-sm rounded-full px-2 py-0.5 sm:px-2 sm:py-1 text-xs">
                         <span className="text-xs font-semibold text-gray-800">{event.category}</span>
                       </div>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                    <h3 className="text-sm font-bold text-gray-800 dark:text-white mb-1 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300 line-clamp-2">
                       {event.title}
                     </h3>
                     
-                    <p className="text-gray-700 dark:text-white/80 text-sm leading-relaxed mb-6">
+                    <p className="text-xs leading-relaxed line-clamp-2 text-gray-700 dark:text-white/80">
                       {event.description}
                     </p>
                   </div>
                   
                   {/* Event Details */}
-                  <div className="px-8 pb-8">
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center text-gray-700 dark:text-white/80">
-                        <FaCalendarAlt className="w-4 h-4 mr-3 text-purple-500" />
-                        <span className="text-sm font-medium">{event.date}</span>
+                  <div className="p-3 sm:p-4 border-t border-white/20 overflow-hidden">
+                    <div className="space-y-2 sm:space-y-3">
+                      <div className="flex items-center text-gray-700 dark:text-white/80 text-xs sm:text-sm">
+                        <FaCalendarAlt className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-purple-500 flex-shrink-0" />
+                        <span className="font-medium truncate">{event.date}</span>
                       </div>
-                      <div className="flex items-center text-gray-700 dark:text-white/80">
-                        <FaClock className="w-4 h-4 mr-3 text-blue-500" />
-                        <span className="text-sm font-medium">{event.time}</span>
+                      <div className="flex items-center text-gray-700 dark:text-white/80 text-xs sm:text-sm">
+                        <FaClock className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-blue-500 flex-shrink-0" />
+                        <span className="font-medium truncate">{event.time}</span>
                       </div>
-                      <div className="flex items-center text-gray-700 dark:text-white/80">
-                        <FaMapMarkerAlt className="w-4 h-4 mr-3 text-emerald-500" />
-                        <span className="text-sm font-medium">{event.location}</span>
+                      <div className="flex items-center text-gray-700 dark:text-white/80 text-xs sm:text-sm">
+                        <FaMapMarkerAlt className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-emerald-500 flex-shrink-0" />
+                        <span className="font-medium truncate">{event.location}</span>
                       </div>
-                      <div className="flex items-center text-gray-700 dark:text-white/80">
-                        <FaUsers className="w-4 h-4 mr-3 text-orange-500" />
-                        <span className="text-sm font-medium">{event.participants} Expected</span>
+                      <div className="flex items-center text-gray-700 dark:text-white/80 text-xs sm:text-sm">
+                        <FaUsers className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-orange-500 flex-shrink-0" />
+                        <span className="font-medium">{event.participants} Expected</span>
                       </div>
                     </div>
                     
                     {/* Action Button */}
-                    <div className="flex justify-center">
-                      <div className="inline-flex items-center justify-center bg-white/40 dark:bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-gray-800 dark:text-white group-hover:bg-white/60 dark:group-hover:bg-white/30 font-semibold transition-all duration-300 shadow-lg group-hover:shadow-xl cursor-pointer">
-                        <span className="mr-2 text-sm">Learn More</span>
-                        <FaArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" />
+                    <div className="flex justify-center mt-3 sm:mt-4">
+                      <div className="inline-flex items-center justify-center bg-white/40 dark:bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-gray-800 dark:text-white group-hover:bg-white/60 dark:group-hover:bg-white/30 font-semibold transition-all duration-300 shadow-lg group-hover:shadow-xl cursor-pointer text-xs">
+                        <span className="mr-1">Learn More</span>
+                        <FaArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-300" />
                       </div>
                     </div>
                   </div>
@@ -347,15 +347,15 @@ export default function EventCalendarPage() {
 
         {/* Contact Section */}
         <div className={`text-center ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: '1200ms'}}>
-          <div className="bg-white/30 dark:bg-white/10 backdrop-blur-md rounded-3xl p-8 max-w-2xl mx-auto border border-white/20">
+          <div className="bg-white/30 dark:bg-white/10 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 max-w-2xl mx-auto border border-white/20">
             <HiAcademicCap className="w-12 h-12 text-purple-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-white mb-3 sm:mb-4">
               Questions About Events?
             </h3>
             <p className="text-gray-600 dark:text-white/70 mb-6">
               For any questions about the event calendar or to register for upcoming events, please contact our school office.
             </p>
-            <Link to="/contact" className="inline-flex items-center justify-center bg-purple-500 hover:bg-purple-600 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer">
+            <Link to="/contact" className="inline-flex items-center justify-center bg-purple-500 hover:bg-purple-600 text-white font-semibold px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer text-sm sm:text-base">
               <span className="mr-2">Contact Office</span>
               <FaArrowRight className="w-4 h-4" />
             </Link>

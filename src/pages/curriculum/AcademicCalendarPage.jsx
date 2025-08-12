@@ -143,7 +143,7 @@ export default function AcademicCalendarPage() {
         .pulse-animation { animation: pulse 4s ease-in-out infinite; }
       `}</style>
 
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-gray-900 dark:via-emerald-900/20 dark:to-gray-900 relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-4 sm:py-6 md:py-8 relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-25" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310B981' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-13.807-11.193-25-25-25s-25 11.193-25 25 11.193 25 25 25 25-11.193 25-25zm25-25c0-13.807-11.193-25-25-25s-25 11.193-25 25 11.193 25 25 25 25-11.193 25-25z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -182,7 +182,7 @@ export default function AcademicCalendarPage() {
               Academic Calendar
             </h1>
             
-            <p className="text-2xl text-gray-700 dark:text-white/80 max-w-5xl mx-auto leading-relaxed mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-2 leading-relaxed mb-8">
               Your comprehensive guide to all academic terms, important dates, holidays, and special events throughout the school year.
               <span className="block mt-3 text-lg text-emerald-600 dark:text-emerald-300">Plan ahead and never miss an important school event or deadline.</span>
             </p>
@@ -203,7 +203,7 @@ export default function AcademicCalendarPage() {
 
           {/* Terms Grid */}
           <div className={`max-w-7xl mx-auto mb-20 ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: '600ms'}}>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
               {terms.map((term, termIndex) => (
                 <div 
                   key={term.id}
@@ -222,17 +222,17 @@ export default function AcademicCalendarPage() {
                           <div className={term.color}>{term.icon}</div>
                         </div>
                         <div className="bg-white/90 dark:bg-white/80 backdrop-blur-sm rounded-2xl px-4 py-2">
-                          <div className="text-center">
+                          <div className="text-center mb-8 sm:mb-12 md:mb-16">
                             <div className="text-lg font-bold text-gray-800">{term.duration}</div>
                             <div className="text-xs text-gray-600">Duration</div>
                           </div>
                         </div>
                       </div>
                       
-                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
                         {term.title}
-                      </h3>
-                      <p className="text-lg text-gray-600 dark:text-white/70 mb-6">{term.period}</p>
+                      </h1>
+                      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mb-3 sm:mb-4">{term.period}</p>
                     </div>
                     
                     {/* Events List */}
@@ -243,13 +243,13 @@ export default function AcademicCalendarPage() {
                             key={eventIndex} 
                             className={`group relative flex items-center justify-between p-3 rounded-xl ${getEventTypeBg(event.type)} backdrop-blur-sm border border-white/20 hover:bg-white/40 dark:hover:bg-white/10 transition-all duration-300 group/event`}
                           >
-                            <div className="flex items-center space-x-3">
+                            <div className="flex items-center space-x-1 sm:space-x-2 mb-1 sm:mb-2">
                               <div className={`${getEventTypeColor(event.type)} group-hover/event:scale-110 transition-transform duration-300`}>
                                 {event.icon}
                               </div>
-                              <div className="font-medium text-gray-800 dark:text-white text-sm">
+                              <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">
                                 {event.description}
-                              </div>
+                              </span>
                             </div>
                             <div className="absolute -bottom-4 right-0 bg-gray-800 dark:bg-gray-700 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg pointer-events-none z-10 border border-white/20">
                               {event.date}
@@ -265,14 +265,14 @@ export default function AcademicCalendarPage() {
           </div>
 
           {/* Important Note */}
-          <div className={`max-w-4xl mx-auto mb-12 ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: '800ms'}}>
+          <div className={`max-w-4xl mx-auto mb-8 sm:mb-12 ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: '800ms'}}>
             <div className="bg-gradient-to-r from-yellow-400/20 via-orange-400/20 to-red-400/20 backdrop-blur-md rounded-3xl p-8 border border-white/30 dark:border-white/20">
               <div className="flex items-start space-x-4">
                 <div className="bg-yellow-500/20 rounded-full p-3">
                   <HiLightBulb className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+                  <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2">
                     Important Note
                   </h3>
                   <p className="text-gray-700 dark:text-white/80 mb-4">
@@ -281,11 +281,11 @@ export default function AcademicCalendarPage() {
                   <a 
                     href="/files/ay_2025-26_calender.pdf" 
                     download="Academic_Calendar_2025-26.pdf"
-                    className="inline-flex items-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-700 transform hover:-translate-y-1"
+                    className="inline-flex items-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-4 rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-indigo-700 transform hover:-translate-y-1 text-sm sm:text-base w-full sm:w-auto min-h-[48px] sm:min-h-[56px]"
                   >
-                    <FaCalendarAlt className="w-5 h-5 mr-2" />
-                    Download Full Academic Calendar (PDF)
-                    <FaArrowRight className="w-4 h-4 ml-2" />
+                    <FaCalendarAlt className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2 flex-shrink-0" />
+                    <span className="text-center sm:text-left">Download Full Academic Calendar (PDF)</span>
+                    <FaArrowRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 ml-2 flex-shrink-0" />
                   </a>
                 </div>
               </div>
@@ -294,10 +294,10 @@ export default function AcademicCalendarPage() {
 
           {/* Navigation Links */}
           <div className={`text-center ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: '1000ms'}}>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-2">
               <Link 
                 to="/curriculum/foundation" 
-                className="inline-flex items-center justify-center bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
               >
                 <FaSchool className="w-5 h-5 mr-2" />
                 View Foundation Stage
@@ -305,7 +305,7 @@ export default function AcademicCalendarPage() {
               </Link>
               <Link 
                 to="/curriculum/igcse" 
-                className="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
               >
                 <FaGraduationCap className="w-5 h-5 mr-2" />
                 View IGCSE Program
@@ -313,7 +313,7 @@ export default function AcademicCalendarPage() {
               </Link>
               <Link 
                 to="/contact" 
-                className="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
               >
                 <FaEnvelope className="w-5 h-5 mr-2" />
                 Contact Office

@@ -258,53 +258,55 @@ const CodeOfConductPage = () => {
                 >
                   <div className="relative group">
                     {/* Glowing border */}
-                    <div className={`absolute -inset-1 bg-gradient-to-r ${section.color} rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-500`}></div>
+                    <div className={`absolute -inset-1 bg-gradient-to-r ${section.color} rounded-xl md:rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-500`}></div>
                     
-                    <div className={`relative bg-gradient-to-r ${section.bgColor} backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 overflow-hidden`}>
+                    <div className={`relative bg-gradient-to-r ${section.bgColor} backdrop-blur-sm rounded-xl md:rounded-2xl shadow-xl border border-white/20 overflow-hidden`}>
                       {/* Header */}
                       <div 
-                        className="p-6 md:p-8 cursor-pointer transition-all duration-300 hover:bg-white/30 dark:hover:bg-gray-800/30"
+                        className="p-4 md:p-6 cursor-pointer transition-all duration-300 hover:bg-white/30 dark:hover:bg-gray-800/30"
                         onClick={() => toggleSection(section.id)}
                       >
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-6">
-                            <div className={`p-4 bg-gradient-to-r ${section.color} text-white rounded-2xl shadow-lg transform transition-all duration-300 group-hover:scale-110`}>
+                          <div className="flex items-center space-x-3 md:space-x-4">
+                            <div className={`p-2 md:p-4 bg-gradient-to-r ${section.color} text-white rounded-xl md:rounded-2xl shadow-lg transform transition-all duration-300 group-hover:scale-110`}>
                               {section.icon}
                             </div>
                             <div>
-                              <h3 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
+                              <h3 className="text-lg md:text-2xl font-bold text-gray-800 dark:text-white">
                                 {section.title}
                               </h3>
-                              <p className="text-gray-600 dark:text-gray-400 mt-1">
+                              <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 mt-1">
                                 {section.rules.length} guidelines
                               </p>
                             </div>
                           </div>
                           <div className={`transform transition-transform duration-300 ${expandedSections[section.id] ? 'rotate-180' : ''}`}>
-                            <FaChevronDown className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+                            <FaChevronDown className="w-5 h-5 md:w-6 md:h-6 text-gray-600 dark:text-gray-400" />
                           </div>
                         </div>
                       </div>
 
                       {/* Content */}
                       <div className={`overflow-hidden transition-all duration-500 ${expandedSections[section.id] ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
-                        <div className="px-6 md:px-8 pb-6 md:pb-8">
-                          <div className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
-                            <div className="space-y-4">
-                              {section.rules.map((rule, ruleIndex) => (
-                                <div 
-                                  key={ruleIndex}
-                                  className="flex items-start space-x-4 group/rule hover:bg-white/30 dark:hover:bg-gray-700/30 rounded-xl p-3 transition-all duration-300"
-                                >
-                                  <div className="flex-shrink-0 mt-1">
-                                    <FaCheckCircle className={`w-5 h-5 bg-gradient-to-r ${section.color} bg-clip-text text-transparent group-hover/rule:animate-pulse`} />
-                                  </div>
-                                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
-                                    {rule}
-                                  </p>
+                        <div className="px-4 md:px-6 pb-4 md:pb-6">
+                          <div className="bg-white/50 dark:bg-gray-800/50 rounded-xl md:rounded-2xl p-4 md:p-6 backdrop-blur-sm">
+                            <ul className="flex flex-col space-y-3 md:space-y-4 list-none">
+                            {section.rules.map((rule, ruleIndex) => (
+                              <li 
+                                key={ruleIndex}
+                                className="flex items-start space-x-3 md:space-x-4 group/rule hover:bg-white/30 dark:hover:bg-gray-700/30 rounded-lg md:rounded-xl p-2 md:p-3 transition-all duration-300"
+                              >
+                                <div className="flex-shrink-0 mt-1">
+                                  <span className={`flex-shrink-0 w-4 h-4 md:w-5 md:h-5 text-gray-600 dark:text-gray-400 group-hover/rule:text-gray-800 dark:group-hover/rule:text-gray-200`}>
+                                  →
+                                </span>
                                 </div>
-                              ))}
-                            </div>
+                                <span className="text-gray-700 dark:text-gray-300 leading-relaxed text-justify text-sm md:text-base">
+                                  {rule}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
                           </div>
                         </div>
                       </div>
@@ -326,58 +328,51 @@ const CodeOfConductPage = () => {
                 >
                   <div className="relative group">
                     {/* Enhanced glowing border */}
-                    <div className={`absolute -inset-1 bg-gradient-to-r ${code.color} rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-700 animate-tilt`}></div>
+                    <div className={`absolute -inset-1 bg-gradient-to-r ${code.color} rounded-xl md:rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-700 animate-tilt`}></div>
                     
-                    <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/30 overflow-hidden">
+                    <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-xl md:rounded-2xl shadow-xl border border-white/30 overflow-hidden">
                       {/* Header with gradient bar */}
-                      <div className={`h-2 bg-gradient-to-r ${code.color}`}></div>
+                      <div className={`h-1 md:h-2 bg-gradient-to-r ${code.color}`}></div>
                       
-                      <div className="p-6 md:p-12">
+                      <div className="p-4 md:p-6 lg:p-8">
                         {/* Title Section */}
-                        <div className="flex items-center space-x-6 mb-8">
-                          <div className={`p-6 bg-gradient-to-r ${code.color} text-white rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-110 hover:rotate-3`}>
+                        <div className="flex items-center space-x-4 md:space-x-6 mb-4 md:mb-6">
+                          <div className={`p-3 md:p-4 lg:p-6 bg-gradient-to-r ${code.color} text-white rounded-lg md:rounded-2xl shadow-xl transform transition-all duration-500 hover:scale-110 hover:rotate-3`}>
                             {code.icon}
                           </div>
                           <div>
-                            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-2">
+                            <h3 className="text-lg md:text-2xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-1 md:mb-2">
                               {code.title}
-                            </h2>
-                            <h3 className="text-xl text-gray-600 dark:text-gray-400 font-medium">
-                              {code.subtitle}
                             </h3>
+                            <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-400">
+                              {code.description}
+                            </p>
                           </div>
                         </div>
 
                         {/* Description */}
-                        <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 mb-8">
-                          <p className="text-lg text-gray-700 dark:text-gray-300 text-justify leading-relaxed font-medium">
+                        <div className="prose dark:prose-invert max-w-none">
+                          <p className="text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4 md:mb-6">
                             {code.description}
                           </p>
-                        </div>
-
-                        {/* Items List */}
-                        <div className="grid gap-4">
-                          {code.items.map((item, itemIndex) => (
-                            <div 
-                              key={itemIndex}
-                              className="relative group/item"
-                              style={{ animationDelay: `${itemIndex * 0.05}s` }}
-                            >
-                              <div className="absolute -inset-0.5 bg-gradient-to-r from-red-400 to-orange-400 rounded-xl blur opacity-0 group-hover/item:opacity-75 transition duration-300"></div>
-                              <div className="relative bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 shadow-lg border border-gray-200 dark:border-gray-600 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
-                                <div className="flex items-start space-x-4">
-                                  <div className="flex-shrink-0">
-                                    <div className={`w-8 h-8 bg-gradient-to-r ${code.color} text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg`}>
-                                      {itemIndex + 1}
-                                    </div>
-                                  </div>
-                                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-justify flex-1">
-                                    {item}
-                                  </p>
+                                                    {/* Rules/Guidelines */}
+                          <ul className="flex flex-col space-y-3 md:space-y-4 list-none">
+                            {code.items.map((rule, ruleIndex) => (
+                              <li 
+                                key={ruleIndex}
+                                className="flex items-start space-x-3 md:space-x-4 group/rule hover:bg-white/30 dark:hover:bg-gray-700/30 rounded-lg md:rounded-xl p-2 md:p-3 transition-all duration-300"
+                              >
+                                <div className="flex-shrink-0 mt-1">
+                                  <span className={`flex-shrink-0 w-4 h-4 md:w-5 md:h-5 text-gray-600 dark:text-gray-400 group-hover/rule:text-gray-800 dark:group-hover/rule:text-gray-200`}>
+                                  →
+                                </span>
                                 </div>
-                              </div>
-                            </div>
-                          ))}
+                                <span className="text-gray-700 dark:text-gray-300 leading-relaxed text-justify text-sm md:text-base">
+                                  {rule}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
                     </div>

@@ -205,11 +205,11 @@ const PrincipalMessagePage = () => {
                   <FaQuoteLeft className="absolute -top-6 -left-4 w-12 h-12 md:w-16 md:h-16 text-blue-200 dark:text-blue-800 opacity-50" />
                   <FaQuoteRight className="absolute -bottom-6 -right-4 w-12 h-12 md:w-16 md:h-16 text-purple-200 dark:text-purple-800 opacity-50" />
                   
-                  <div className="prose dark:prose-invert max-w-none text-justify space-y-8">
-                    <div className="relative group/paragraph overflow-hidden rounded-2xl">
-                      <div className="absolute -inset-4 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
-                      <div className="relative p-6 transition-all duration-300">
-                        <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 first-letter:text-6xl first-letter:font-bold first-letter:text-blue-600 first-letter:float-left first-letter:mr-3 first-letter:mt-1">
+                  <div className="flex flex-col space-y-4 md:space-y-6">
+                    <div className="relative group/paragraph overflow-hidden rounded-xl md:rounded-2xl">
+                      <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
+                      <div className="relative p-4 md:p-6 transition-all duration-300">
+                        <p className="text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 first-letter:text-4xl md:first-letter:text-6xl first-letter:font-bold first-letter:text-blue-600 first-letter:float-left first-letter:mr-2 md:first-letter:mr-3 first-letter:mt-1">
                           I am happy to announce that <span className="font-bold text-blue-600 dark:text-blue-400 animate-pulse">ZPPS School is an accredited Cambridge International Centre</span>. 
                           We completely follow the Cambridge Curriculum from Foundation to IGCSE classes. 
                           We believe that education should be about developing a real thirst for learning.
@@ -217,10 +217,10 @@ const PrincipalMessagePage = () => {
                       </div>
                     </div>
 
-                    <div className="relative group/paragraph overflow-hidden rounded-2xl">
-                      <div className="absolute -inset-4 bg-gradient-to-r from-purple-50 via-pink-50 to-red-50 dark:from-purple-900/20 dark:via-pink-900/20 dark:to-red-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
-                      <div className="relative p-6 transition-all duration-300">
-                        <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+                    <div className="relative group/paragraph overflow-hidden rounded-xl md:rounded-2xl">
+                      <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-purple-50 via-pink-50 to-red-50 dark:from-purple-900/20 dark:via-pink-900/20 dark:to-red-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
+                      <div className="relative p-4 md:p-6 transition-all duration-300">
+                        <p className="text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                           <span className="font-bold text-purple-600 dark:text-purple-400">ZPPSS has a long-standing reputation</span> for doing its very best for each individual student, 
                           by underpinning an exciting and ambitious academic program and a wide range of 
                           extra-curricular activities. Words, pictures, and the school ecosystem speak volumes 
@@ -229,10 +229,10 @@ const PrincipalMessagePage = () => {
                       </div>
                     </div>
 
-                    <div className="relative group/paragraph overflow-hidden rounded-2xl">
-                      <div className="absolute -inset-4 bg-gradient-to-r from-pink-50 via-red-50 to-orange-50 dark:from-pink-900/20 dark:via-red-900/20 dark:to-orange-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
-                      <div className="relative p-6 transition-all duration-300">
-                        <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+                    <div className="relative group/paragraph overflow-hidden rounded-xl md:rounded-2xl">
+                      <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-pink-50 via-red-50 to-orange-50 dark:from-pink-900/20 dark:via-red-900/20 dark:to-orange-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
+                      <div className="relative p-4 md:p-6 transition-all duration-300">
+                        <p className="text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                           Our school offers <span className="font-bold text-pink-600 dark:text-pink-400">outstanding academic, sporting, and extracurricular opportunities</span>. 
                           Come and see the learners at work and play, really enjoying their time. Speak to them 
                           of their success and failures and the lessons these have taught them. Hear about the 
@@ -242,10 +242,10 @@ const PrincipalMessagePage = () => {
                       </div>
                     </div>
 
-                    <div className="relative group/paragraph overflow-hidden rounded-2xl">
-                      <div className="absolute -inset-4 bg-gradient-to-r from-green-50 via-teal-50 to-blue-50 dark:from-green-900/20 dark:via-teal-900/20 dark:to-blue-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
-                      <div className="relative p-6 transition-all duration-300">
-                        <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+                    <div className="relative group/paragraph overflow-hidden rounded-xl md:rounded-2xl">
+                      <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-green-50 via-teal-50 to-blue-50 dark:from-green-900/20 dark:via-teal-900/20 dark:to-blue-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
+                      <div className="relative p-4 md:p-6 transition-all duration-300">
+                        <p className="text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                           This is a place where children learn how to treat others the way they themselves would 
                           like to be treated, where they learn to give their best in spite of the difficulties 
                           they may encounter, where they learn to grow into <span className="font-bold text-green-600 dark:text-green-400">well-mannered and balanced young men 
@@ -254,10 +254,10 @@ const PrincipalMessagePage = () => {
                       </div>
                     </div>
 
-                    <div className="relative group/paragraph overflow-hidden rounded-2xl">
-                      <div className="absolute -inset-4 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-900/20 dark:via-purple-900/20 dark:to-pink-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
-                      <div className="relative p-6 transition-all duration-300">
-                        <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+                    <div className="relative group/paragraph overflow-hidden rounded-xl md:rounded-2xl">
+                      <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-900/20 dark:via-purple-900/20 dark:to-pink-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
+                      <div className="relative p-4 md:p-6 transition-all duration-300">
+                        <p className="text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                           Zomba Private Primary and Secondary is <span className="font-bold text-indigo-600 dark:text-indigo-400">inclusive in the way that we cater for and 
                           accommodate children with diverse interests, abilities, and talents</span>, while being 
                           exclusive in our provision for those who really want to excel either academically, 
@@ -266,11 +266,11 @@ const PrincipalMessagePage = () => {
                       </div>
                     </div>
 
-                    <div className="relative group/paragraph overflow-hidden rounded-2xl">
-                      <div className="absolute -inset-4 bg-gradient-to-r from-yellow-50 via-orange-50 to-red-50 dark:from-yellow-900/20 dark:via-orange-900/20 dark:to-red-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
-                      <div className="relative p-6 transition-all duration-300">
-                        <p className="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 font-medium">
-                          Above all, we strive for every one of our learners to be <span className="font-bold text-2xl text-yellow-600 dark:text-yellow-400 animate-pulse">happy</span>. 
+                    <div className="relative group/paragraph overflow-hidden rounded-xl md:rounded-2xl">
+                      <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-yellow-50 via-orange-50 to-red-50 dark:from-yellow-900/20 dark:via-orange-900/20 dark:to-red-900/20 opacity-0 group-hover/paragraph:opacity-100 transition-all duration-500 blur-sm"></div>
+                      <div className="relative p-4 md:p-6 transition-all duration-300">
+                        <p className="text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium">
+                          Above all, we strive for every one of our learners to be <span className="font-bold text-xl md:text-2xl text-yellow-600 dark:text-yellow-400 animate-pulse">happy</span>. 
                           Happy children, who want to come to school, will eventually find something to latch on to and throw 
                           their energies into. Happy children will always thrive and succeed at ZPPS School.
                         </p>

@@ -198,7 +198,7 @@ const FeeStructurePage = () => {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full mb-8 pulse-glow-animation">
               <FaDollarSign className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-7xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 bg-clip-text text-transparent mb-6">
+            <h1 className="text-6xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 bg-clip-text text-transparent mb-6">
               Fee Structure
             </h1>
             <h2 className="text-3xl font-semibold text-emerald-500 dark:text-emerald-400 mb-4 bounce-gentle">
@@ -241,11 +241,11 @@ const FeeStructurePage = () => {
 
           {/* Fee Structure Cards */}
           <div className="max-w-7xl mx-auto mb-20 slide-in-up" style={{ animationDelay: '0.4s' }}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="flex flex-col lg:flex-row gap-8 w-full">
               {feeData.map((level, index) => (
                 <div 
                   key={level.id}
-                  className="group relative"
+                  className="group relative flex-1 min-w-0"
                   onMouseEnter={() => setHoveredLevel(level.id)}
                   onMouseLeave={() => setHoveredLevel(null)}
                   onMouseMove={(e) => handleMouseMove(e, level.id)}
@@ -254,7 +254,7 @@ const FeeStructurePage = () => {
                   <div className={`absolute inset-0 bg-gradient-to-r ${level.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${level.glowColor}`}></div>
                   
                   {/* Main Card */}
-                  <div className="relative bg-white/30 dark:bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 dark:border-white/10 hover:bg-white/40 dark:hover:bg-white/20 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl">
+                  <div className="relative bg-white/30 dark:bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 dark:border-white/10 hover:bg-white/40 dark:hover:bg-white/20 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl w-full">
                     {/* Interactive Light Effect */}
                     {hoveredLevel === level.id && (
                       <div 
@@ -266,8 +266,8 @@ const FeeStructurePage = () => {
                     )}
                     
                     {/* Header */}
-                    <div className="flex items-center mb-8">
-                      <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${level.gradient} mr-6 group-hover:scale-110 transition-all duration-300 ${level.glowColor}`}>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center mb-8">
+                      <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${level.gradient} mb-4 sm:mb-0 sm:mr-6 group-hover:scale-110 transition-all duration-300 ${level.glowColor}`}>
                         <div className={level.color}>
                           {level.icon}
                         </div>
@@ -281,9 +281,9 @@ const FeeStructurePage = () => {
                     </div>
                     
                     {/* Fee Items */}
-                    <div className="space-y-4 mb-8">
+                    <div className="space-y-4 mb-8 w-full">
                       {level.items.map((item, itemIndex) => (
-                        <div key={itemIndex} className="flex items-center justify-between p-4 bg-white/20 dark:bg-white/5 rounded-2xl border border-white/10">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-white/20 dark:bg-white/5 rounded-2xl border border-white/10 gap-2 sm:gap-4">
                           <div className="flex items-center">
                             <div className={`inline-flex items-center justify-center w-8 h-8 rounded-lg ${level.bgColor} mr-4`}>
                               <div className={level.color}>
@@ -301,12 +301,12 @@ const FeeStructurePage = () => {
                     </div>
                     
                     {/* Totals */}
-                    <div className="border-t border-white/20 pt-6">
-                      <div className="flex justify-between items-center mb-3">
+                    <div className="border-t border-white/20 pt-6 w-full">
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2">
                         <span className="text-xl font-bold text-gray-800 dark:text-white">Total First Term</span>
                         <span className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">MK {level.total}</span>
                       </div>
-                      <div className="flex justify-between items-center">
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                         <span className="text-lg text-gray-600 dark:text-gray-300">Second & Third Term Fee:</span>
                         <span className="text-xl font-semibold text-purple-600 dark:text-purple-400">MK {level.subsequentTerms}</span>
                       </div>

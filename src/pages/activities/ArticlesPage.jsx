@@ -238,11 +238,11 @@ const ArticlesPage = () => {
       <div className="relative z-10 container mx-auto px-6 py-20">
         {/* Header */}
         <div className={`text-center mb-16 ${isVisible ? 'slide-in-up' : 'opacity-0'}`}>
-          <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <div className="p-3 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
               <FaNewspaper className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold">
+            <h1 className="text-4xl md:text-6xl font-bold text-center">
               <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
                 News & Articles
               </span>

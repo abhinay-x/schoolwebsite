@@ -335,7 +335,7 @@ const TripsPage = () => {
                       
 
                       {/* Trip Info Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 p-8">
+                      {/* <div className="absolute bottom-0 left-0 right-0 p-8">
                         <div className="bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6">
                           <div className="flex items-start justify-between mb-4">
                             <div>
@@ -361,7 +361,7 @@ const TripsPage = () => {
                           </div>
                           <p className="text-white/90 leading-relaxed">{image.description}</p>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </SwiperSlide>
                 ))}

@@ -247,19 +247,19 @@ const ChairmanMessagePage = () => {
                   <FaQuoteLeft className="absolute -top-8 -left-6 w-16 h-16 md:w-20 md:h-20 text-emerald-200 dark:text-emerald-800 opacity-60" />
                   <FaQuoteRight className="absolute -bottom-8 -right-6 w-16 h-16 md:w-20 md:h-20 text-teal-200 dark:text-teal-800 opacity-60" />
                   
-                  <div className="prose dark:prose-invert max-w-none text-justify space-y-10">
-                    <div className="relative group/paragraph overflow-hidden rounded-3xl">
-                      <div className={`absolute -inset-6 bg-gradient-to-r ${keyPrinciples[0].bgColor} opacity-0 group-hover/paragraph:opacity-100 transition-all duration-700 blur-xl`}></div>
-                      <div className="relative p-8 transition-all duration-500 hover:transform hover:scale-[1.02]">
-                        <div className="flex items-start space-x-4 mb-4">
-                          <div className={`p-3 bg-gradient-to-r ${keyPrinciples[0].color} text-white rounded-full flex-shrink-0`}>
+                  <div className="flex flex-col space-y-4 md:space-y-6">
+                    <div className="relative group/paragraph overflow-hidden rounded-xl md:rounded-2xl">
+                      <div className={`absolute -inset-2 md:-inset-4 bg-gradient-to-r ${keyPrinciples[0].bgColor} opacity-0 group-hover/paragraph:opacity-100 transition-all duration-700 blur-xl`}></div>
+                      <div className="relative p-4 md:p-6 transition-all duration-500 hover:transform hover:scale-[1.02]">
+                        <div className="flex items-start space-x-3 md:space-x-4 mb-3 md:mb-4">
+                          <div className={`p-2 md:p-3 bg-gradient-to-r ${keyPrinciples[0].color} text-white rounded-full flex-shrink-0`}>
                             {keyPrinciples[0].icon}
                           </div>
                           <div>
-                            <h3 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">Academic Excellence</h3>
+                            <h3 className="text-lg md:text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">Academic Excellence</h3>
                           </div>
                         </div>
-                        <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300 first-letter:text-7xl first-letter:font-bold first-letter:text-emerald-600 first-letter:float-left first-letter:mr-4 first-letter:mt-2">
+                        <p className="text-base md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 first-letter:text-4xl md:first-letter:text-7xl first-letter:font-bold first-letter:text-emerald-600 first-letter:float-left first-letter:mr-2 md:first-letter:mr-4 first-letter:mt-1 md:first-letter:mt-2">
                           Our aim is that our students achieve the <span className="font-bold text-emerald-600 dark:text-emerald-400 animate-pulse">highest academic standards</span>. 
                           But this is only one aspect of our school. We actively encourage 
                           the process of joyful discovery that is central to meaningful and responsible learning.
@@ -267,18 +267,18 @@ const ChairmanMessagePage = () => {
                       </div>
                     </div>
 
-                    <div className="relative group/paragraph overflow-hidden rounded-3xl">
-                      <div className={`absolute -inset-6 bg-gradient-to-r ${keyPrinciples[3].bgColor} opacity-0 group-hover/paragraph:opacity-100 transition-all duration-700 blur-xl`}></div>
-                      <div className="relative p-8 transition-all duration-500 hover:transform hover:scale-[1.02]">
-                        <div className="flex items-start space-x-4 mb-4">
-                          <div className={`p-3 bg-gradient-to-r ${keyPrinciples[3].color} text-white rounded-full flex-shrink-0`}>
+                    <div className="relative group/paragraph overflow-hidden rounded-xl md:rounded-2xl">
+                      <div className={`absolute -inset-2 md:-inset-4 bg-gradient-to-r ${keyPrinciples[3].bgColor} opacity-0 group-hover/paragraph:opacity-100 transition-all duration-700 blur-xl`}></div>
+                      <div className="relative p-4 md:p-6 transition-all duration-500 hover:transform hover:scale-[1.02]">
+                        <div className="flex items-start space-x-3 md:space-x-4 mb-3 md:mb-4">
+                          <div className={`p-2 md:p-3 bg-gradient-to-r ${keyPrinciples[3].color} text-white rounded-full flex-shrink-0`}>
                             {keyPrinciples[3].icon}
                           </div>
                           <div>
-                            <h3 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-2">Expert Faculty</h3>
+                            <h3 className="text-lg md:text-2xl font-bold text-purple-600 dark:text-purple-400 mb-2">Expert Faculty</h3>
                           </div>
                         </div>
-                        <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300">
+                        <p className="text-base md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
                           We have a team of <span className="font-bold text-purple-600 dark:text-purple-400">dedicated teachers who are experts in their subjects</span> 
                           and they facilitate very high academic expectations of their learners 
                           and care deeply about the well-being of each student.
@@ -286,19 +286,19 @@ const ChairmanMessagePage = () => {
                       </div>
                     </div>
 
-                    <div className="relative group/paragraph overflow-hidden rounded-3xl">
-                      <div className={`absolute -inset-6 bg-gradient-to-r ${keyPrinciples[5].bgColor} opacity-0 group-hover/paragraph:opacity-100 transition-all duration-700 blur-xl`}></div>
-                      <div className="relative p-8 transition-all duration-500 hover:transform hover:scale-[1.02]">
-                        <div className="flex items-start space-x-4 mb-4">
-                          <div className={`p-3 bg-gradient-to-r ${keyPrinciples[5].color} text-white rounded-full flex-shrink-0`}>
+                    <div className="relative group/paragraph overflow-hidden rounded-xl md:rounded-2xl">
+                      <div className={`absolute -inset-2 md:-inset-4 bg-gradient-to-r ${keyPrinciples[5].bgColor} opacity-0 group-hover/paragraph:opacity-100 transition-all duration-700 blur-xl`}></div>
+                      <div className="relative p-4 md:p-6 transition-all duration-500 hover:transform hover:scale-[1.02]">
+                        <div className="flex items-start space-x-3 md:space-x-4 mb-3 md:mb-4">
+                          <div className={`p-2 md:p-3 bg-gradient-to-r ${keyPrinciples[5].color} text-white rounded-full flex-shrink-0`}>
                             {keyPrinciples[5].icon}
                           </div>
                           <div>
-                            <h3 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">Nurturing Environment</h3>
+                            <h3 className="text-lg md:text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">Nurturing Environment</h3>
                           </div>
                         </div>
-                        <p className="text-xl md:text-2xl leading-relaxed text-gray-700 dark:text-gray-300 font-medium">
-                          We pride ourselves on our <span className="font-bold text-3xl text-indigo-600 dark:text-indigo-400 animate-pulse">happy and nurturing environment</span> which 
+                        <p className="text-base md:text-xl leading-relaxed text-gray-700 dark:text-gray-300 font-medium">
+                          We pride ourselves on our <span className="font-bold text-2xl md:text-3xl text-indigo-600 dark:text-indigo-400 animate-pulse">happy and nurturing environment</span> which 
                           enables every student to achieve their best.
                         </p>
                       </div>

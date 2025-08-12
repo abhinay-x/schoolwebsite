@@ -201,7 +201,7 @@ const AdmissionFormPage = () => {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8 pulse-glow-animation">
               <FaFileAlt className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
+            <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
               Admission Form
             </h1>
             <h2 className="text-3xl font-semibold text-blue-500 dark:text-blue-400 mb-4 bounce-gentle">
@@ -238,29 +238,29 @@ const AdmissionFormPage = () => {
           <div className="max-w-5xl mx-auto mb-20 slide-in-up" style={{ animationDelay: '0.4s' }}>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/10 to-indigo-500/20 rounded-3xl blur-xl"></div>
-              <div className="relative bg-white/30 dark:bg-white/10 backdrop-blur-xl rounded-3xl p-12 border border-white/20 dark:border-white/10">
-                <div className="text-center mb-12">
+              <div className="relative bg-white/30 dark:bg-white/10 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-white/20 dark:border-white/10 flex flex-col items-center">
+                <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl mb-6 pulse-glow-animation">
                     <FaDownload className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+                  <h3 className="text-4xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 bg-clip-text text-transparent mb-4 brightness-110">
                     Download Application Form
                   </h3>
-                  <p className="text-xl text-gray-600 dark:text-gray-300">
+                  <p className="text-xl text-gray-700 dark:text-gray-200 font-medium">
                     Get started with the admission process by downloading our official application form
                   </p>
                 </div>
                 
-                <div className="text-center">
+                <div className="flex flex-col items-center">
                   <button
                     onClick={handleDownload}
-                    className="group inline-flex items-center px-12 py-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold text-xl rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-blue-600 hover:to-purple-600"
+                    className="group inline-flex items-center px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold text-base sm:text-lg rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-blue-600 hover:to-purple-600"
                   >
-                    <FaDownload className="w-6 h-6 mr-4 group-hover:animate-bounce" />
+                    <FaDownload className="w-5 sm:w-6 h-5 sm:h-6 mr-3 sm:mr-4 group-hover:animate-bounce" />
                     <span>Download PDF Form</span>
-                    <FaArrowRight className="w-6 h-6 ml-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    <FaArrowRight className="w-5 sm:w-6 h-5 sm:h-6 ml-3 sm:ml-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </button>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-4 font-medium">
                     PDF format • Compatible with all devices • Printable
                   </p>
                 </div>

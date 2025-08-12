@@ -1,9 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './styles/responsive.css';
 
 body {
   @apply font-sans bg-gray-50 text-school-primary;
+  overflow-x: hidden;
+}
+
+/* Ensure proper mobile scaling */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Mobile-first responsive wrapper */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .app-container {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    padding: 2rem;
+    max-width: 1280px;
+  }
 }
 
 /* Prevent text selection and default cursor on non-interactive elements */

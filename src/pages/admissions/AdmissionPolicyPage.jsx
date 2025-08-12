@@ -191,7 +191,7 @@ const AdmissionPolicyPage = () => {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8 pulse-glow-animation">
               <FaGraduationCap className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
+            <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-6">
               Admission Policy
             </h1>
             <h2 className="text-3xl font-semibold text-red-500 dark:text-red-400 mb-4 bounce-gentle">

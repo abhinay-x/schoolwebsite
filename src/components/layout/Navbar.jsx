@@ -220,7 +220,7 @@ const Navigation = ({ isMenuOpen, closeMenu, isMobile = false }) => {
 
   const handleDropdownLeave = (e) => {
     // Check if moving back to the parent menu item
-    const parentMenuItem = e.relatedTarget?.closest('.menu-item');
+    const parentMenuItem = e.relatedTarget?.closest?.('.menu-item');
     if (parentMenuItem) {
       return; // Don't close if moving back to parent menu
     }
@@ -269,145 +269,133 @@ const Navigation = ({ isMenuOpen, closeMenu, isMobile = false }) => {
           onClick={closeMenu}
         />
         
-        {/* Enhanced Mobile Menu */}
-        <div className={`
-          absolute top-0 right-0 h-full w-80 max-w-[90vw] 
-          bg-gradient-to-br from-green-50 via-white to-green-50
-          shadow-2xl transform transition-transform duration-500 ease-in-out
-          border-l-4 border-green-500
-          ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}
-        `}>
+        {/* Enhanced Mobile Navigation */}
+        <nav
+          className={`
+            fixed top-0 right-0 w-3/4 h-3/4 z-50 bg-white dark:bg-gray-900 
+            transform transition-transform duration-300 ease-in-out
+            ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}
+            lg:hidden flex flex-col shadow-xl rounded-bl-xl
+          `}
+        >
           {/* Enhanced Header */}
-          <div className="flex items-center justify-between p-6 border-b-2 border-green-100 bg-gradient-to-r from-green-600 to-emerald-600">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10">
-                <svg viewBox="0 0 120 120" className="w-full h-full drop-shadow-lg">
+          <div className="flex items-center justify-between p-3 border-b border-green-100 bg-gradient-to-r from-green-600 to-emerald-600">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8">
+                <svg viewBox="0 0 120 120" className="w-full h-full drop-shadow">
                   <path d="M60 10 L25 25 L25 55 Q25 80 60 110 Q95 80 95 55 L95 25 Z" fill="white"/>
                   <text x="60" y="27" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#16a34a">ZPPSS</text>
                   <text x="60" y="92" textAnchor="middle" fontSize="6" fill="#16a34a" fontWeight="bold">CARE ★ ASPIRE ★ SUCCESS</text>
                 </svg>
               </div>
-              <div>
-                <h2 className="text-white font-bold text-lg tracking-wide">Menu</h2>
-                <p className="text-green-100 text-sm">Navigation</p>
-              </div>
+              <h2 className="text-base font-semibold text-white">Menu</h2>
             </div>
             <button
               onClick={closeMenu}
-              className="p-3 rounded-xl bg-white/20 text-white hover:bg-white/30 transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-sm"
+              className="p-1.5 rounded bg-white/20 hover:bg-white/30 transition-all duration-200 backdrop-blur-sm"
             >
-              <XMarkIcon className="h-6 w-6" />
+              <XMarkIcon className="h-5 w-5 text-white" />
             </button>
           </div>
 
-          {/* Enhanced Navigation Items */}
-          <div className="p-4 space-y-1 h-full overflow-y-auto pb-32">
-            {navigationItems.map((item, index) => (
-              <div key={item.name} className="group">
-                {item.submenu ? (
-                  <div>
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
+          {/* Enhanced Navigation Items - Scrollable Content */}
+          <div className="flex-1 overflow-y-auto">
+            <div className="p-4 space-y-1">
+              {navigationItems.map((item, index) => (
+                <div key={item.name} className="group">
+                  {item.submenu ? (
+                    <div>
+                      <button
+                        onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
+                        className={`
+                          w-full flex items-center justify-between p-2 rounded-lg
+                          text-gray-700 hover:text-green-700 hover:bg-green-50
+                          transition-all duration-200 transform hover:scale-[1.01]
+                          border border-transparent hover:border-green-200
+                          animate-slideInRight
+                        `}
+                        style={{ animationDelay: `${index * 50}ms` }}
+                      >
+                        <div className="flex items-center space-x-2">
+                          <div className="p-1.5 rounded bg-green-100 group-hover:bg-green-200 transition-colors duration-200">
+                            <item.icon className="h-4 w-4 text-green-600" />
+                          </div>
+                          <div className="text-left flex-1">
+                            <span className="font-medium text-sm">{item.name}</span>
+                          </div>
+                        </div>
+                        <ChevronRightIcon 
+                          className={`h-4 w-4 text-green-500 transition-transform duration-200 ${
+                            openDropdown === item.name ? 'rotate-90' : ''
+                          }`} 
+                        />
+                      </button>
+                      
+                      {/* Enhanced Submenu with proper routing */}
+                      {openDropdown === item.name && (
+                        <div className="ml-4 mt-2 space-y-1 animate-slideInRight bg-gradient-to-r from-green-25 to-transparent rounded-lg p-2">
+                          {item.submenu.map((subItem, subIndex) => (
+                            <Link
+                              key={subItem.name}
+                              to={subItem.href}
+                              onClick={closeMenu}
+                              className={`
+                                flex items-center space-x-2 px-2 py-2 rounded
+                                text-gray-600 hover:bg-white hover:text-green-700
+                                transition-all duration-200 transform hover:translate-x-1 hover:scale-[1.01]
+                                border-l-2 border-transparent hover:border-green-500
+                                group/item
+                              `}
+                              style={{ animationDelay: `${(index * 50) + (subIndex * 25)}ms` }}
+                            >
+                              <div className="p-1 rounded bg-green-50 group-hover:bg-green-100 transition-colors duration-200">
+                                <subItem.icon className="h-3 w-3 text-green-500" />
+                              </div>
+                              <div>
+                                <span className="text-sm">{subItem.name}</span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      onClick={closeMenu}
                       className={`
-                        w-full flex items-center justify-between p-4 rounded-xl
+                        flex items-center space-x-2 p-2 rounded
                         text-gray-700 hover:text-green-700 hover:bg-green-50
-                        transition-all duration-300 transform hover:scale-[1.02] hover:translate-x-1
-                        border-2 border-transparent hover:border-green-200
-                        shadow-sm hover:shadow-md
+                        transition-all duration-200 transform hover:scale-[1.01] hover:translate-x-0.5
+                        border border-transparent hover:border-green-200 group
                         animate-slideInRight
                       `}
-                      style={{ animationDelay: `${index * 100}ms` }}
+                      style={{ animationDelay: `${index * 50}ms` }}
                     >
-                      <div className="flex items-center space-x-4">
-                        <div className="p-2 rounded-lg bg-green-100 group-hover:bg-green-200 transition-colors duration-300">
-                          <item.icon className="h-5 w-5 text-green-600" />
-                        </div>
-                        <div className="text-left">
-                          <span className="font-semibold text-base block">{item.name}</span>
-                          <span className="text-xs text-gray-500 group-hover:text-green-600">{item.description}</span>
-                        </div>
+                      <div className="p-1.5 rounded bg-green-100 group-hover:bg-green-200 transition-colors duration-200">
+                        <item.icon className="h-4 w-4 text-green-600" />
                       </div>
-                      <ChevronRightIcon 
-                        className={`h-5 w-5 text-green-500 transition-transform duration-300 ${
-                          openDropdown === item.name ? 'rotate-90' : ''
-                        }`} 
-                      />
-                    </button>
-                    
-                    {/* Enhanced Submenu with proper routing */}
-                    {openDropdown === item.name && (
-                      <div className="ml-4 mt-2 space-y-1 animate-slideInRight bg-gradient-to-r from-green-25 to-transparent rounded-lg p-2">
-                        {item.submenu.map((subItem, subIndex) => (
-                          <Link
-                            key={subItem.name}
-                            to={subItem.href}
-                            onClick={closeMenu}
-                            className={`
-                              flex items-center space-x-3 px-4 py-3 rounded-lg
-                              text-gray-600 hover:bg-white hover:text-green-700
-                              transition-all duration-300 transform hover:translate-x-2
-                              border border-transparent hover:border-green-200
-                              shadow-sm hover:shadow-md group
-                            `}
-                            style={{ animationDelay: `${(index * 100) + (subIndex * 50)}ms` }}
-                          >
-                            <div className="p-1.5 rounded-md bg-green-50 group-hover:bg-green-100 transition-colors duration-300">
-                              <subItem.icon className="h-3 w-3 text-green-500" />
-                            </div>
-                            <div>
-                              <span className="font-medium text-sm block">{subItem.name}</span>
-                              <span className="text-xs text-gray-400 group-hover:text-green-500">{subItem.description}</span>
-                            </div>
-                          </Link>
-                        ))}
+                      <div className="text-left flex-1">
+                        <span className="font-medium text-sm">{item.name}</span>
                       </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    to={item.href}
-                    onClick={closeMenu}
-                    className={`
-                      flex items-center space-x-4 p-4 rounded-xl
-                      text-gray-700 hover:text-green-700 hover:bg-green-50
-                      transition-all duration-300 transform hover:scale-[1.02] hover:translate-x-1
-                      border-2 border-transparent hover:border-green-200
-                      shadow-sm hover:shadow-md group
-                      animate-slideInRight
-                    `}
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="p-2 rounded-lg bg-green-100 group-hover:bg-green-200 transition-colors duration-300">
-                      <item.icon className="h-5 w-5 text-green-600" />
-                    </div>
-                    <div className="text-left">
-                      <span className="font-semibold text-base block">{item.name}</span>
-                      <span className="text-xs text-gray-500 group-hover:text-green-600">{item.description}</span>
-                    </div>
-                    <div className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1">
-                      <ChevronRightIcon className="w-4 h-4 text-green-500" />
-                    </div>
-                  </Link>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Enhanced Footer */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 border-t-2 border-green-100 bg-gradient-to-r from-green-600 to-emerald-600">
-            <div className="text-center text-white">
-              <p className="font-bold text-lg tracking-wide">ZOMBA PRIVATE SCHOOL</p>
-              <p className="text-green-100 font-medium">Cambridge IGCSE Excellence</p>
-              <div className="flex justify-center mt-2">
-                <div className="flex space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <div key={i} className="w-1 h-1 bg-white rounded-full animate-pulse" style={{ animationDelay: `${i * 200}ms` }} />
-                  ))}
+                      <div className="opacity-0 group-hover:opacity-100 transition-all duration-200">
+                        <ChevronRightIcon className="w-3 h-3 text-green-500" />
+                      </div>
+                    </Link>
+                  )}
                 </div>
-              </div>
+              ))}
             </div>
           </div>
-        </div>
+
+          {/* Enhanced Footer - Always visible at bottom */}
+          <div className="mt-auto p-3 border-t border-green-100 bg-gradient-to-r from-green-600 to-emerald-600">
+            <div className="text-center text-white">
+              <p className="font-semibold text-sm">ZOMBA PRIVATE SCHOOL</p>
+              <p className="text-green-100 text-xs">Cambridge IGCSE Excellence</p>
+            </div>
+          </div>
+        </nav>
       </div>
     );
   }

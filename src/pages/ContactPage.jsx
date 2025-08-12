@@ -213,7 +213,7 @@ const ContactPage = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
           {stats.map((stat, index) => (
             <div 
               key={index}
@@ -228,7 +228,7 @@ const ContactPage = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Contact Information Section */}
           <div className="space-y-8">
             <div className="text-center mb-8">
@@ -236,10 +236,8 @@ const ContactPage = () => {
               <p className="text-gray-600 dark:text-gray-400">We're here to help and answer any questions you might have</p>
             </div>
 
-            {/* 2x2 Grid Layout: Map (top span 2 cols), Phone & Email (bottom row) */}
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Map Section - Spans 2 columns */}
-              <div className="col-span-1 md:col-span-2">
+            <div className="flex flex-col gap-6 w-full">
+              <div className="w-full">
                 <div className="relative bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-purple-500/20 backdrop-blur-sm rounded-2xl p-6 shadow-lg shadow-blue-500/25 border border-white/30 dark:border-gray-700/50 transform transition-all duration-300 hover:scale-105 overflow-hidden group">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative z-10">
