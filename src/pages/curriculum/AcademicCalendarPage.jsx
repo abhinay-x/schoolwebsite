@@ -171,31 +171,33 @@ export default function AcademicCalendarPage() {
 
         <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
           {/* Enhanced Header */}
-          <div className={`text-center mb-20 ${isVisible ? 'slide-in-up' : 'opacity-0'}`}>
-            <div className="inline-flex items-center justify-center p-3 bg-white/20 dark:bg-white/10 backdrop-blur-md rounded-full mb-8 border border-emerald-200/30 dark:border-white/20">
-              <HiCalendar className="w-6 h-6 text-emerald-500 dark:text-emerald-400 mr-3" />
-              <span className="text-gray-800 dark:text-white/90 font-semibold">Academic Year 2025-2026</span>
-              <HiSparkles className="w-5 h-5 text-teal-500 dark:text-teal-400 ml-3" />
+          <div className={`text-center mb-8 sm:mb-12 md:mb-20 ${isVisible ? 'slide-in-up' : 'opacity-0'}`}>
+            <div className="inline-flex items-center justify-center p-2 sm:p-3 bg-white/20 dark:bg-white/10 backdrop-blur-md rounded-full mb-4 sm:mb-8 border border-emerald-200/30 dark:border-white/20">
+              <HiCalendar className="w-4 h-4 sm:w-5 md:w-6 sm:h-5 md:h-6 text-emerald-500 dark:text-emerald-400 mr-2 sm:mr-3" />
+              <span className="text-xs sm:text-sm md:text-base text-gray-800 dark:text-white/90 font-semibold">Academic Year 2025-2026</span>
+              <HiSparkles className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-teal-500 dark:text-teal-400 ml-2 sm:ml-3" />
             </div>
             
-            <h1 className="text-7xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 dark:from-emerald-300 dark:via-teal-300 dark:to-cyan-300 bg-clip-text text-transparent mb-8 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 dark:from-emerald-300 dark:via-teal-300 dark:to-cyan-300 bg-clip-text text-transparent mb-4 sm:mb-6 md:mb-8 leading-tight px-2">
               Academic Calendar
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-2 leading-relaxed mb-8">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto px-4 leading-relaxed mb-6 sm:mb-8">
               Your comprehensive guide to all academic terms, important dates, holidays, and special events throughout the school year.
-              <span className="block mt-3 text-lg text-emerald-600 dark:text-emerald-300">Plan ahead and never miss an important school event or deadline.</span>
+              <span className="block mt-2 sm:mt-3 text-emerald-600 dark:text-emerald-300 text-xs sm:text-sm md:text-base lg:text-lg">Plan ahead and never miss an important school event or deadline.</span>
             </p>
 
             {/* Stats Section */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-auto mt-8 sm:mt-12">
               {stats.map((stat, index) => (
-                <div key={index} className={`bg-white/30 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/40 dark:hover:bg-white/20 transition-all duration-300 group ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: `${index * 100 + 300}ms`}}>
-                  <div className={`${stat.color} mb-3 transform group-hover:scale-110 transition-transform duration-300`}>
-                    {stat.icon}
+                <div key={index} className={`bg-white/30 dark:bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 border border-white/20 hover:bg-white/40 dark:hover:bg-white/20 transition-all duration-300 group ${isVisible ? 'slide-in-up' : 'opacity-0'}`} style={{animationDelay: `${index * 100 + 300}ms`}}>
+                  <div className={`${stat.color} mb-2 sm:mb-3 transform group-hover:scale-110 transition-transform duration-300`}>
+                    {React.cloneElement(stat.icon, { 
+                      className: `w-5 h-5 sm:w-6 sm:h-6 md:w-auto md:h-auto ${stat.icon.props.className || ''}` 
+                    })}
                   </div>
-                  <div className="text-2xl font-bold text-gray-800 dark:text-white mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-600 dark:text-white/70">{stat.label}</div>
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-white mb-1">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-gray-600 dark:text-white/70">{stat.label}</div>
                 </div>
               ))}
             </div>

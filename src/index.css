@@ -1,7 +1,7 @@
+@import './styles/responsive.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './styles/responsive.css';
 
 body {
   @apply font-sans bg-gray-50 text-school-primary;

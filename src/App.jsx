@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createBrowserRouter, RouterProvider, Routes, Route, Outlet } from 'react-router-dom';
+import { createHashRouter, RouterProvider, Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import DarkModeToggle from './components/layout/DarkModeToggle';
@@ -100,7 +100,7 @@ function RootLayout() {
 
 // Router Configuration
 function App() {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <RootLayout />,
@@ -137,7 +137,6 @@ function App() {
         { path: "about/code-of-conduct", element: <CodeOfConductPage /> },
         { 
           path: "curriculum", 
-          element: <CurriculumPage />,
           children: [
             { index: true, element: <div className="p-8"><h2 className="text-2xl font-bold mb-4">Select a Curriculum Section</h2></div> },
             { path: "foundation", element: <FoundationStage /> },
@@ -153,6 +152,7 @@ function App() {
       ]
     }
   ], {
+    basename: '/',
     future: {
       v7_startTransition: true,
       v7_relativeSplatPath: true
