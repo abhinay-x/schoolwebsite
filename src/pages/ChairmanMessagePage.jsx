@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaQuoteLeft, FaQuoteRight, FaUserTie, FaLightbulb, FaStar, FaGem, FaRocket, FaHeart, FaCrown, FaHandshake, FaAward, FaBrain } from 'react-icons/fa';
 import { Helmet } from 'react-helmet';
-import chairmanImage from '/images/chairman.jpg';
+
+const chairmanImg = '/images/chairman.jpg';
 
 const ChairmanMessagePage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -147,7 +148,7 @@ const ChairmanMessagePage = () => {
                     <div className="relative">
                       <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/20 transform transition-all duration-700 hover:scale-105 group-hover/image:rotate-3">
                         <img 
-                          src={chairmanImage} 
+                          src={chairmanImg} 
                           alt="Mr. Mohammed Zuber Motani" 
                           className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
                         />

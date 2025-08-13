@@ -142,6 +142,7 @@ export default function FoundationStage() {
         <Helmet>
           <title>Foundation Stage - ZPPSS</title>
           <meta name="description" content="Discover our Foundation Stage program designed to nurture young minds with engaging activities and comprehensive early childhood education." />
+          <meta property="og:title" content="Foundation Stage - ZPPSS" />
         </Helmet>
 
         {/* Animated Background */}

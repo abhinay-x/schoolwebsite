@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createHashRouter, RouterProvider, Routes, Route, Outlet } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import DarkModeToggle from './components/layout/DarkModeToggle';
@@ -100,7 +100,7 @@ function RootLayout() {
 
 // Router Configuration
 function App() {
-  const router = createHashRouter([
+  const router = createBrowserRouter([
     {
       path: "/",
       element: <RootLayout />,
@@ -154,8 +154,11 @@ function App() {
   ], {
     basename: '/',
     future: {
-      v7_startTransition: true,
-      v7_relativeSplatPath: true
+      v7_fetcherPersist: true,
+      v7_normalizeFormMethod: true,
+      v7_partialHydration: true,
+      v7_relativeSplatPath: true,
+      v7_skipActionErrorRevalidation: true,
     }
   });
 

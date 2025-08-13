@@ -111,6 +111,7 @@ export default function IGCSEPage() {
       <Helmet>
         <title>IGCSE Program - ZPPSS</title>
         <meta name="description" content="Explore our comprehensive IGCSE program designed to prepare students for international qualifications and global opportunities." />
+        <meta property="og:title" content="IGCSE Program - ZPPSS" />
       </Helmet>
       {/* Custom CSS for advanced animations */}
       <style>{`
